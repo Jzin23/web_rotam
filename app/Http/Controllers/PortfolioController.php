@@ -8,6 +8,6 @@ class PortfolioController extends Controller
 {
     public function inicioPortfolio ()
     {
-        echo 'Inicio portfolio';
+        return view('Portfolio');
     }
 }

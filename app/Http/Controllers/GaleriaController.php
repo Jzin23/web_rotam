@@ -8,6 +8,6 @@ class GaleriaController extends Controller
 {
     public function inicioGaleria ()
     {
-        echo 'Inicio galeria';
+        return view('galeria');
     }
 }

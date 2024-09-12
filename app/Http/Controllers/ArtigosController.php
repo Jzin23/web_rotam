@@ -8,6 +8,6 @@ class ArtigosController extends Controller
 {
     public function inicioArtigos ()
     {
-        echo 'Inicio artigos';
+        return view('artigos');
     }
 }
