@@ -18,18 +18,18 @@
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li>
-              <a href="{{Route('Portfolio')}}" class="nav-link px-2 text-white">Portfolio 
+              <a href="{{Route('site.portfolio')}}" class="nav-link px-2 text-white">Portfolio 
 
               </a></li>
-            <li><a href="{{Route('artigos')}}" class="nav-link px-2 text-white">Artigos</a></li>
-            <li><a href="{{Route('galeria')}}" class="nav-link px-2 text-white">Galeria</a></li>
+            <li><a href="{{Route('site.artigos')}}" class="nav-link px-2 text-white">Artigos</a></li>
+            <li><a href="{{Route('site.galeria')}}" class="nav-link px-2 text-white">Galeria</a></li>
             
           </ul>
 
 
           <div class="text-end">
             <button  type="button" class="btn btn-warning">
-              <a href="{{Route('login')}}">
+              <a href="{{Route('site.login')}}">
                   Login
               </a>
             </button>
