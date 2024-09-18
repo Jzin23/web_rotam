@@ -17,10 +17,11 @@ Route::get('/login', [LoginController::class, 'logar'])->name('site.login');
 
 
 route::prefix('/configAdmRotam')->group(function () {
-    Route::get('/confHome', [HomeController::class, 'index'])->name('site.home');
-    Route::get('/confPortfolio', [PortfolioController::class, 'inicioPortfolio'])->name('site.portfolio');
-    Route::get('/confArtigos', [ArtigosController::class, 'inicioArtigos'])->name('site.artigos');
-    Route::get('/confGaleria', [GaleriaController::class, 'inicioGaleria'])->name('site.galeria');
+    
+    Route::get('/confHome', [HomeController::class, 'index'])->name('conf.home');
+    Route::get('/confPortfolio', [PortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
+    Route::get('/confArtigos', [ArtigosController::class, 'inicioArtigos'])->name('conf.artigos');
+    Route::get('/confGaleria', [GaleriaController::class, 'inicioGaleria'])->name('conf.galeria');
 });
 
 Route::fallback(function () {
