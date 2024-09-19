@@ -1,6 +1,13 @@
   <html>
+  <head>
+      <title> ROTAM - @yield('titulo')</title>
+      <meta charset="utf-8">
+  </head>
   <style type="text/css">
-    img{border-radius: 110%; height: 20%; width: 20%;}
+    body{
+      width: 100vw;
+    }
+    #logo{border-radius: 110%; height: 20%; width: 20%;}
     
     </style>
     <body>
