@@ -10,12 +10,12 @@
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
 
-<body>
+<<body>
 
     <div id="menu-admin">
     <ul class="list-group">
   <li class="list-group-item"><i class="bi bi-person"></i> Perfil</li>
-  <li class="list-group-item"><i class="bi bi-people"></i> <a href="{{Route('portfolioAdmin')}}"> Portfolio</a></li>
+  <li class="list-group-item"><i class="bi bi-people"></i> <a href="@@{{Route('portfolioAdmin')}}"> Portfolio</a></li>
   <li class="list-group-item"><i class="bi bi-file-earmark-text"></i>  Artigos</li>
   <li class="list-group-item"><i class="bi bi-images"></i>  Galeria</li>
   <li class="list-group-item"><i class="bi bi-sliders"></i>  Parametros</li>

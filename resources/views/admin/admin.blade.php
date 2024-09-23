@@ -19,10 +19,11 @@
             justify-content: CENTER;
             right: 0;
         }
-        H1{
+
+        H1 {
             float: LEFT;
             padding: 20vh;
-            
+
         }
     </style>
 </head>
@@ -32,7 +33,10 @@
     <div id="quantitativo">
         <H1>Portfolio</H1>
         <H1>Artigos</H1>
+
     </div>
+
+
 </body>
 
 </html>

@@ -17,7 +17,7 @@ class CreateArtigosTable extends Migration
             $table->id('id_artigo');
             $table->string('titulo');
             $table->string('subtitulo')->nullable();
-            $table->timestamp('data_criacao')->useCurrent();
+            $table->timestamps();
  
         });
     }

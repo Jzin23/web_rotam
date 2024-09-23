@@ -18,10 +18,10 @@ class CreatePortfoliosTable extends Migration
             $table->id('id_portfolio'); 
             $table->string('nome_atleta'); 
             $table->string('descricao_breve'); 
-            $table->timestamp('data_criacao'); 
+            $table->timestamps(); 
             $table->unsignedBigInteger('id_foto'); 
 
-            $table->foreign('id_foto')->references('id')->on('FOTOS')->onDelete('cascade');
+            $table->foreign('id_foto')->references('id_foto')->on('galeria_fotos');
 
         });
     }
