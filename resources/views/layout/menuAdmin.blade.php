@@ -15,7 +15,11 @@
     <div id="menu-admin">
     <ul class="list-group">
   <li class="list-group-item"><i class="bi bi-person"></i> Perfil</li>
+<<<<<<< HEAD
   <li class="list-group-item"><i class="bi bi-people"></i> <a href="{{Route('conf.portfolio')}}"> Portfolio</a></li>
+=======
+  <li class="list-group-item"><i class="bi bi-people"></i> <a href="@@{{Route('portfolioAdmin')}}"> Portfolio</a></li>
+>>>>>>> d973eb96a12e437da0c9e52d5aae5aa4814e8164
   <li class="list-group-item"><i class="bi bi-file-earmark-text"></i>  Artigos</li>
   <li class="list-group-item"><i class="bi bi-images"></i>  Galeria</li>
   <li class="list-group-item"><i class="bi bi-sliders"></i>  Parametros</li>
