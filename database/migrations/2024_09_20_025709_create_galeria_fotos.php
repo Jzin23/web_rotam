@@ -20,7 +20,7 @@ class CreateGaleriaFotosTable extends Migration
             $table->string('foto'); 
             $table->timestamps();
 
-            $table->foreign('id_carrocel')->references('id')->on('CARROCEL')->onDelete('cascade');  
+            $table->foreign('id_carrocel')->references('id_carrocel')->on('carrocel_galeria');  
 
         });
     }

@@ -22,7 +22,7 @@ class CreateConquistaHistoriaPortfoliosTable extends Migration
             $table->timestamps();
 
            
-            $table->foreign('id_portfolio')->references('id')->on('portfolios')->onDelete('cascade');
+            $table->foreign('id_portfolio')->references('id_portfolio')->on('portfolio');
 
         });
     }

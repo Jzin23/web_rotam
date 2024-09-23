@@ -16,11 +16,11 @@ class CreateParagrafosArtigosTable extends Migration
         Schema::create('paragrafos_artigos', function (Blueprint $table) {
             $table->id('id_paragrafo');
             $table->unsignedBigInteger('id_artigo');
-            $table->string('titulo_paragrafo');
+            $table->string('titulo_paragrafo'); 
             $table->text('texto_artigo');
             $table->timestamps();
 
-            $table->foreign('id_artigo')->references('id')->on('artigos')->onDelete('cascade');
+            $table->foreign('id_artigo')->references('id_artigo')->on('artigos');
         });
     }
 
