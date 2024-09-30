@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarrocelGaleriaTable extends Migration
+class Galeria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateCarrocelGaleriaTable extends Migration
      */
     public function up()
     {
-        Schema::create('carrocel_galeria', function (Blueprint $table) {
+        Schema::create('galeria_fotos', function (Blueprint $table) {
             
-            $table->id('id_carrocel');
-            $table->string('descricao_carrocel'); 
+            $table->id('id_foto'); 
+            $table->unsignedBigInteger('id_carrocel'); 
+            $table->string('foto'); 
             $table->timestamps();
+
+            $table->foreign('id_carrocel')->references('id_carrocel')->on('carrocel_galeria');  
 
         });
     }
@@ -29,6 +32,6 @@ class CreateCarrocelGaleriaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carrocel_galerias');
+        Schema::dropIfExists('galeria_fotos');
     }
 }

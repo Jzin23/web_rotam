@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ConquistaHistoriaPortfolio extends Migration
+class CreateConquistaHistoriaPortfoliosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class ConquistaHistoriaPortfolio extends Migration
      */
     public function up()
     {
-        Schema::create('conquista_historia_portfolio', function (Blueprint $table) {
+        Schema::create('conquista_historia_portfolios', function (Blueprint $table) {
             
             $table->id(); 
             $table->unsignedBigInteger('id_portfolio'); 
@@ -22,7 +22,7 @@ class ConquistaHistoriaPortfolio extends Migration
             $table->timestamps();
 
            
-            $table->foreign('id_portfolio')->references('id_portfolio')->on('portfolios');
+            $table->foreign('id_portfolio')->references('id')->on('portfolios')->onDelete('cascade');
 
         });
     }

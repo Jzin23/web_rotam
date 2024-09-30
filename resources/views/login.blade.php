@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-<title>ROTAM - LOGIN</title>
+    <title>ROTAM - LOGIN</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -65,15 +65,16 @@
 
         <div id="login">
 
-            <form>
+            <form action = "{{route('site.login')}}" method="post">
+            @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Digite seu login</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input name="login" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">Não compartilhe seu acesso com ninguem.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Digite sua senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input name="senha" type="password" class="form-control" id="exampleInputPassword1">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Acessar</button>

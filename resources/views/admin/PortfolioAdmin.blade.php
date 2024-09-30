@@ -30,7 +30,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Membro 1</h5>
                         <button class="btn btn-primary me-2"><i class="bi bi-pencil"></i> Editar</button>
-                        <button class="btn btn-danger"><i class="bi bi-trash"></i> Excluir</button>
+                        <button class="btn btn-danger"><i class="bi bi-trash"></i>Excluir</button>
                     </div>
                 </div>
             </div>

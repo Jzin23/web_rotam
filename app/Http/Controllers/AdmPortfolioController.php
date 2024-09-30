@@ -11,15 +11,10 @@ class AdmPortfolioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
+
     public function inicioPortfolio()
     {
-        return view('admin.PortfolioAdmin'); 
-=======
-    public function index()
-    {
-        //
->>>>>>> d973eb96a12e437da0c9e52d5aae5aa4814e8164
+        return view('admin.PortfolioAdmin');
     }
 
     /**

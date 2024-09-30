@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    @include('layout/menuAdmin')
+    @include('layout.menuAdmin')
     <div id="quantitativo">
         <H1>Portfolio</H1>
         <H1>Artigos</H1>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePortfoliosTable extends Migration
+class Portfolio extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePortfoliosTable extends Migration
      */
     public function up()
     {
-        Schema::create('portfolio', function (Blueprint $table) {
+        Schema::create('portfolios', function (Blueprint $table) {
             
             $table->id('id_portfolio'); 
             $table->string('nome_atleta'); 

@@ -6,8 +6,21 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function logar ()
+    public function index()
     {
         return view('login');
+    }
+
+    public function logar(Request $request)
+    {
+
+        $senha = $request->input('senha');
+
+        $senhaCriptografada = bcrypt($senha);
+
+        echo "Senha: $senha------------";
+        echo "Criptografada: $senhaCriptografada ------------";
+
+    
     }
 }
