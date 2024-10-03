@@ -4,7 +4,7 @@
       <meta charset="utf-8">
   </head>
   <style type="text/css">
-    img{border-radius: 110%; height: 20%; width: 20%;}
+   #logo{border-radius: 110%; height: 20%; width: 20%;}
     
     </style>
     <body>

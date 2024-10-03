@@ -49,28 +49,40 @@
 
         }
 
+        .historia {
+            background-color: #ccc;
+            width: 100vw;
+            height: 30vh;
+            position: absolute;
+            bottom: 0;
+            color: #000;
+            display: flex;
+            justify-content: center;
+
+        }
+
         .conquista_missao {
             display: flex;
+            
         }
 
         .conquista_missao_sub {
             width: 50vw;
-            height: 50vh;
+            height: 60vh;
             display: flex;
             justify-content: center;
-        }
-
-        .conquista_missao_sub h1 {
-            position: relative;
-            top: 1vw;
-            display: flex;
+            h1{
+                display: flex;
             justify-content: center;
+            }
+            .texto_conquista_missao{
+             width: 90vh;
+             
+            }
+            
         }
 
-        .conquista_missao_sub p {
-            display: flex;
-            align-items: center;
-        }
+        
 
         #section_1 {
             background-color: #fff;
@@ -78,6 +90,12 @@
             h1 {
                 color: #000;
             }
+            p{
+                color:#000;
+                width: 90vh;
+            }
+            
+
         }
 
         #section_2 {
@@ -85,6 +103,34 @@
 
             h1 {
                 color: #fff;
+            }
+            p{
+                color:#fff;
+            }
+        }
+
+        #gremio_section_1 {
+            background-color: #fff;
+
+            h1 {
+                color: #000;
+            }
+            p{
+                color:#000;
+                width: 90vh;
+            }
+            
+
+        }
+
+        #gremio_section_2 {
+            background-color: #000;
+
+            h1 {
+                color: #fff;
+            }
+            p{
+                color:#fff;
             }
         }
     </style>
@@ -113,7 +159,39 @@
     </div>
     <section class="conquista_missao">
         <section class="conquista_missao_sub" id="section_1">
-            <h1>CONQUISTA</h1>
+            <div class="texto_conquista_missao">
+                <h1>CONQUISTAS</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+        </div>
+        </section>
+        <section class="conquista_missao_sub" id="section_2">
+        <div class="texto_conquista_missao">
+            <h1>MISSÃO</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+        </div>
+            
+        </section>
+    </section>
+
+
+
+
+
+    <br><br><br><br><br><br>  
+    <div id="banner">
+        <div class="historia">
+            <h1>História da academia </h1>
+        </div>
+    </div><br><br><br><br><br><br>  
+
+
+
+
+    
+    <div id="banner">
+
+        <div class="filtro">
+            <h1>O GREMIO</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsum dicta illum assumenda
                 consequatur, nostrum voluptatibus voluptas tenetur molestias et officiis. Fugit voluptatem aliquam
                 similique veniam officia animi nam illo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
@@ -124,13 +202,25 @@
                 accusantium nobis expedita necessitatibus.
 
             </p>
+        </div>
+    </div>
+    <section class="conquista_missao">
+        <section class="conquista_missao_sub" id="gremio_section_1">
+            <div class="texto_conquista_missao">
+                    <h1>CONQUISTAS</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+            </div>
         </section>
-        <section class="conquista_missao_sub" id="section_2">
-            <h1>MISSÃO</h1>
+        <section class="conquista_missao_sub" id="gremio_section_2">
+            <div class="texto_conquista_missao">
+                <h1>MISSÃO</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+            </div>            
         </section>
     </section>
 
 
+    @include('layout/rodape')
 </body>
 
 </html>
