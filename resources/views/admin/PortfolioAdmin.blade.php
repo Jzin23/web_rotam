@@ -8,6 +8,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+        <style>
+        body{
+            display: flex;
+        }
+        </style>
 </head>
 
 <body>
@@ -26,43 +31,46 @@
             <!-- Card 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="membro1.jpg" class="card-img-top" alt="Membro 1">
+                <img src="{{asset('image/rotam.jpg')}}">
                     <div class="card-body text-center">
                         <h5 class="card-title">Membro 1</h5>
                         <button class="btn btn-primary me-2"><i class="bi bi-pencil"></i> Editar</button>
                         <button class="btn btn-danger"><i class="bi bi-trash"></i>Excluir</button>
+
+                        
                     </div>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="membro2.jpg" class="card-img-top" alt="Membro 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Membro 2</h5>
-                        <button class="btn btn-primary me-2"><i class="bi bi-pencil"></i> Editar</button>
-                        <button class="btn btn-danger"><i class="bi bi-trash"></i> Excluir</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="membro3.jpg" class="card-img-top" alt="Membro 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Membro 3</h5>
-                        <button class="btn btn-primary me-2"><i class="bi bi-pencil"></i> Editar</button>
-                        <button class="btn btn-danger"><i class="bi bi-trash"></i> Excluir</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mais cards aqui conforme necessário -->
         </div>
+        <!-- Botão para acionar modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+  Abrir modal de demonstração
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     </div>
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
