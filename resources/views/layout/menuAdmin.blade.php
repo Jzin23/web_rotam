@@ -1,6 +1,6 @@
 <style>
     #menu-admin {
-        width: 40vh;
+        width: 35vh;
         height: 100vh;
     }
     .list-group-item{
@@ -14,6 +14,7 @@
 
     <div id="menu-admin">
     <ul class="list-group">
+    <li class="list-group-item"><i class="bi bi-house"></i> <a href="{{Route('conf.home')}}">Inicio</a></li>
   <li class="list-group-item"><i class="bi bi-person"></i> Perfil</li>
 
   <li class="list-group-item"><i class="bi bi-people"></i> <a href="{{Route('conf.portfolio')}}"> Portfolio</a></li>

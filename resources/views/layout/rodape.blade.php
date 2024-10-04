@@ -29,7 +29,8 @@
                 }
             }
             i{
-                size: 10px;
+                font-size: 2rem;
+                margin: 1rem;
             }
         }
         body{
