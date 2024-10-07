@@ -14,6 +14,10 @@
   <style>
     body {
       display: flex;
+
+      .form-floating {
+        margin: 2rem;
+      }
     }
   </style>
 </head>
@@ -27,7 +31,7 @@
   <div class="content p-4 w-100">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="text-dark">Portfólio</h1>
-      <button class="btn btn-success">Adicionar +</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarModal">Portfolio +</button>
     </div>
 
     <div class="row">
@@ -37,6 +41,7 @@
           <img src="{{asset('image/rotam.jpg')}}">
           <div class="card-body text-center">
             <h5 class="card-title">Membro 1</h5>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalConquista">Conquista + </button>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <i class="bi bi-pencil"></i> editar</button>
 
@@ -53,28 +58,31 @@
     </div>
 
 
-
-    <!-- Modal editar-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal adicionar-->
+        <div class="modal fade" id="AdicionarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Editando Portfólio</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionando Portfólio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <form action="">
+              <label> Nome do atleta</label>
+              <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+              <hr>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Selecione a foto do atleta</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              <hr>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
+              </div>
 
-            <hr>
-            <div class="mb-3">
-              <label for="formFile" class="form-label">Selecione a foto do atleta</label>
-              <input class="form-control" type="file" id="formFile">
-            </div>
-          </div>
-          <hr>
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">Apresente aqui uma breve descrição</label>
+            </form>
+
           </div>
 
           <div class="modal-footer">
@@ -86,6 +94,81 @@
       </div>
     </div>
 
+    <!-- Modal editar-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editando Portfólio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <label> Nome do atleta</label>
+              <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+              <hr>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Selecione a foto do atleta</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              <hr>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
+              </div>
+
+            </form>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" btn btn-success class="btn btn-primary">Salvar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--adicionar conquista/historia-->
+    <div class="modal fade" id="ModalConquista" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editando Portfólio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+                    <label> Nome do atleta</label>
+                    <input type="text" class="form-control" aria-label="Large" disabled="disabled" aria-describedby="inputGroup-sizing-sm" value="Membro numero 1">
+
+                </div>
+                <hr>
+
+                <div class="conquistasModel" style="border:1px solid #000; height:15rem;">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" rows="3"></textarea>
+                    <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
+                  </div>
+
+                  <hr>
+
+                  <div class="form-group">
+                    
+                    <button class="btn btn-danger">X</button>
+                    <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+                    <textarea  class="form-control" id="exampleFormControlTextarea1" disabled="disabled">Texto de uma conquista adicionado</textarea>
+                  </div>
+                </div>
+
+                <button class="btn btn-success">Adicionar Conquista</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
 
     <!-- Modal excluir-->
     <div class="modal fade" id="ModalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
