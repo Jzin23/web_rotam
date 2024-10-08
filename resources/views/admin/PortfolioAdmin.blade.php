@@ -41,7 +41,8 @@
           <img src="{{asset('image/rotam.jpg')}}">
           <div class="card-body text-center">
             <h5 class="card-title">Membro 1</h5>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalConquista">Conquista + </button>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalConquista">Conquista +
+            </button>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <i class="bi bi-pencil"></i> editar</button>
 
@@ -58,8 +59,8 @@
     </div>
 
 
-        <!-- Modal adicionar-->
-        <div class="modal fade" id="AdicionarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal adicionar-->
+    <div class="modal fade" id="AdicionarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -140,29 +141,31 @@
           </div>
           <div class="modal-body">
             <form action="">
-                    <label> Nome do atleta</label>
-                    <input type="text" class="form-control" aria-label="Large" disabled="disabled" aria-describedby="inputGroup-sizing-sm" value="Membro numero 1">
+              <label> Nome do atleta</label>
+              <input type="text" class="form-control" aria-label="Large" disabled="disabled"
+                aria-describedby="inputGroup-sizing-sm" value="Membro numero 1">
 
-                </div>
-                <hr>
+          </div>
+          <hr>
 
-                <div class="conquistasModel" style="border:1px solid #000; height:15rem;">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" rows="3"></textarea>
-                    <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
-                  </div>
+          <div class="conquistasModel" style="  height:15rem;">
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                rows="3"></textarea>
+              <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
+            </div>
 
-                  <hr>
+            <hr>
 
-                  <div class="form-group">
-                    
-                    <button class="btn btn-danger">X</button>
-                    <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
-                    <textarea  class="form-control" id="exampleFormControlTextarea1" disabled="disabled">Texto de uma conquista adicionado</textarea>
-                  </div>
-                </div>
+            <div class="form-group">
 
-                <button class="btn btn-success">Adicionar Conquista</button>
+              <textarea class="form-control" id="exampleFormControlTextarea1" disabled="disabled">Texto de uma conquista adicionado</textarea>
+              <button class="btn btn-danger">X</button>
+              <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+            </div>
+          </div>
+            <hr>
+          <button class="btn btn-success">Adicionar Conquista</button>
 
           </form>
 
