@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>gestão de artigos</h1>
+    <h1>Galeria admin</h1>
   @include('layout/menuAdmin')
     
 </body>

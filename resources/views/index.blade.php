@@ -8,6 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+        
+        ::-webkit-scrollbar {
+            display: none;
+        }
         #banner {
             width: 100vw;
             height: 85vh;
@@ -63,26 +67,30 @@
 
         .conquista_missao {
             display: flex;
-            
+
         }
 
         .conquista_missao_sub {
-            width: 50vw;
+            width: 50%;
             height: 60vh;
             display: flex;
             justify-content: center;
-            h1{
+
+            h1 {
                 display: flex;
-            justify-content: center;
-            }
-            .texto_conquista_missao{
-             width: 90vh;
-             
+                justify-content: center;
             }
             
+            .texto_conquista_missao {
+                position: relative;
+                top: 2rem;
+                width: 90vh;
+
+            }
+
         }
 
-        
+
 
         #section_1 {
             background-color: #fff;
@@ -90,11 +98,12 @@
             h1 {
                 color: #000;
             }
-            p{
-                color:#000;
+
+            p {
+                color: #000;
                 width: 90vh;
             }
-            
+
 
         }
 
@@ -104,8 +113,9 @@
             h1 {
                 color: #fff;
             }
-            p{
-                color:#fff;
+
+            p {
+                color: #fff;
             }
         }
 
@@ -115,11 +125,12 @@
             h1 {
                 color: #000;
             }
-            p{
-                color:#000;
+
+            p {
+                color: #000;
                 width: 90vh;
             }
-            
+
 
         }
 
@@ -129,9 +140,16 @@
             h1 {
                 color: #fff;
             }
-            p{
-                color:#fff;
+
+            p {
+                color: #fff;
             }
+        }
+
+        .historia {
+            position: relative;
+            background-color: #000;
+                height: 70rem;
         }
     </style>
 </head>
@@ -162,14 +180,14 @@
             <div class="texto_conquista_missao">
                 <h1>CONQUISTAS</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
-        </div>
+            </div>
         </section>
         <section class="conquista_missao_sub" id="section_2">
-        <div class="texto_conquista_missao">
-            <h1>MISSÃO</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
-        </div>
-            
+            <div class="texto_conquista_missao">
+                <h1>MISSÃO</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+            </div>
+
         </section>
     </section>
 
@@ -177,17 +195,16 @@
 
 
 
-    <br><br><br><br><br><br>  
-    <div id="banner">
-        <div class="historia">
-            <h1>História da academia </h1>
+    <section class="historia">
+        <div>
+            @include('layout/historia')
         </div>
-    </div><br><br><br><br><br><br>  
+    </section>
 
 
 
 
-    
+
     <div id="banner">
 
         <div class="filtro">
@@ -207,15 +224,15 @@
     <section class="conquista_missao">
         <section class="conquista_missao_sub" id="gremio_section_1">
             <div class="texto_conquista_missao">
-                    <h1>CONQUISTAS</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+                <h1>CONQUISTAS</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
             </div>
         </section>
         <section class="conquista_missao_sub" id="gremio_section_2">
             <div class="texto_conquista_missao">
                 <h1>MISSÃO</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
-            </div>            
+            </div>
         </section>
     </section>
 
