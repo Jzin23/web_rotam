@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 class AdmGaleriaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibir uma listagem do recurso.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('admin.GaleriaAdmin');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostrar o formulário para criação de um novo recurso.
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,7 +27,7 @@ class AdmGaleriaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazene um recurso recém-criado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -38,7 +38,7 @@ class AdmGaleriaController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     *Exibir o recurso especificado.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -49,7 +49,7 @@ class AdmGaleriaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostrar o formulário para edição do recurso especificado.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -60,7 +60,7 @@ class AdmGaleriaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualize o recurso especificado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -72,7 +72,7 @@ class AdmGaleriaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remova o recurso especificado do armazenamento.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -24,8 +24,10 @@ route::prefix('/configAdmRotam')->group(function () {
 
     Route::get('/', [AdmHomeController::class, 'index'])->name('conf.home');
     Route::get('/confPortfolio', [AdmPortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
-    Route::get('/confArtigos', [AdmArtigosController::class, 'inicioArtigos'])->name('conf.artigos');
-    Route::get('/confGaleria', [AdmGaleriaController::class, 'inicioGaleria'])->name('conf.galeria');
+    Route::get('/confArtigos', [AdmArtigosController::class, 'index'])->name('conf.artigos');
+    Route::get('/confGaleria', [AdmGaleriaController::class, 'index'])->name('conf.galeria');
+    Route::get('/confPerfil', [AdmGaleriaController::class, 'index'])->name('conf.perfil');
+    Route::get('/confParametros', [AdmGaleriaController::class, 'index'])->name('conf.parametros');
     
 });
 
