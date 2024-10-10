@@ -17,7 +17,7 @@ class GaleriaFoto extends Migration
             
             $table->id('id_foto'); 
             $table->unsignedBigInteger('id_carrocel'); 
-            $table->string('foto'); 
+            $table->string('foto',100)->default("Imagem não definida no banco de dados"); 
             $table->timestamps();
 
             $table->foreign('id_carrocel')->references('id_carrocel')->on('carrocel_galeria');  

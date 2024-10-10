@@ -16,7 +16,7 @@ class CreateCarrocelGaleriaTable extends Migration
         Schema::create('carrocel_galeria', function (Blueprint $table) {
             
             $table->id('id_carrocel');
-            $table->string('descricao_carrocel'); 
+            $table->string('descricao_carrocel')->nullable(); 
             $table->timestamps();
 
         });

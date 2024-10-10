@@ -15,10 +15,10 @@ class ConquistaHistoriaPortfolio extends Migration
     {
         Schema::create('conquista_historia_portfolio', function (Blueprint $table) {
             
-            $table->id(); 
+            $table->id('id_conquista_historia_portfolio'); 
             $table->unsignedBigInteger('id_portfolio'); 
-            $table->string('titulo'); 
-            $table->text('descricao'); 
+            $table->string('titulo',100)->default("Definir o titulo"); 
+            $table->string('descricao',1000)->default("Definir uma descrição"); 
             $table->timestamps();
 
            
@@ -34,6 +34,6 @@ class ConquistaHistoriaPortfolio extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conquista_historia_portfolios');
+        Schema::dropIfExists('conquista_historia_portfolio');
     }
 }

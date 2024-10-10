@@ -15,8 +15,8 @@ class CreateArtigosTable extends Migration
     {
         Schema::create('artigos', function (Blueprint $table) {
             $table->id('id_artigo');
-            $table->string('titulo');
-            $table->string('subtitulo')->nullable();
+            $table->string('titulo',100)->default("Definir um título");
+            $table->string('subtitulo',800)->nullable();
             $table->timestamps();
  
         });

@@ -8,7 +8,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('login');
+        return view('admin.admin');
     }
 
     public function logar(Request $request)
@@ -23,4 +23,6 @@ class LoginController extends Controller
 
     
     }
+
+
 }

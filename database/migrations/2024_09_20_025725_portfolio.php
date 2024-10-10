@@ -16,8 +16,8 @@ class Portfolio extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             
             $table->id('id_portfolio'); 
-            $table->string('nome_atleta'); 
-            $table->string('descricao_breve'); 
+            $table->string('nome_atleta')->default("Definir Nome do atleta"); 
+            $table->string('descricao_breve')->default("Definir descrição breve do atleta"); 
             $table->timestamps(); 
             $table->unsignedBigInteger('id_foto'); 
 
