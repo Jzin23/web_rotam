@@ -9,13 +9,31 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
 
-
+    <style>
+    body{
+    
+        background-color: #000;
+    }
+    
+    .titulo h1{
+        padding: 1rem;
+        
+        color: #fff000;
+    }
+    
+    </style>
 </head>
 @section('titulo', ' GALERIA')
-@include('layout/menu') ;
+@include('layout/menu')
 
 <body>
-    <h1>galeria</h1>
+    <div class="titulo">
+    <h1>A galeria</h1>
+    </div>
+
+    @include('layout/carrossel')
+    @include('layout/carrossel')
+    @include('layout/rodape')
 </body>
 
 </html>
