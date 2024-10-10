@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdmArtigosController extends Controller
+class AdmPerfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class AdmArtigosController extends Controller
      */
     public function index()
     {
-        return view('admin.ArtigoAdmin');
+        return view('admin.PerfilAdmin');
     }
 
     /**
