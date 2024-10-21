@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CarrocelGaleria extends Model
 {
     use HasFactory;
+    protected $table = 'carrocel_galerias';
 }

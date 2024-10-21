@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class GaleriaFoto extends Migration
+class GaleriaFotos extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,7 @@ class GaleriaFoto extends Migration
             $table->string('foto',100)->default("Imagem não definida no banco de dados"); 
             $table->timestamps();
 
-            $table->foreign('id_carrocel')->references('id_carrocel')->on('carrocel_galeria');  
+            $table->foreign('id_carrocel')->references('id_carrocel')->on('carrocel_galerias');  
 
         });
     }

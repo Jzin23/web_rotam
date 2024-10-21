@@ -8,17 +8,21 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdmHomeController;
 use App\Http\Controllers\ArtigosController;
 use App\Http\Controllers\GaleriaController;
+use App\Http\Controllers\AdmPerfilController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\AdmArtigosController;
 use App\Http\Controllers\AdmGaleriaController;
+use App\Http\Controllers\AdmParametroController;
 use App\Http\Controllers\AdmPortfolioController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/portfolio', [PortfolioController::class, 'inicioPortfolio'])->name('site.portfolio');
 Route::get('/artigos', [ArtigosController::class, 'inicioArtigos'])->name('site.artigos');
 Route::get('/galeria', [GaleriaController::class, 'inicioGaleria'])->name('site.galeria');
+Route::get('/register', AuthController::class, 'index' )->name('site.register');
 Route::get('/login', [LoginController::class, 'index'])->name('site.login');
-Route::post('/login', [LoginController::class, 'logar'])->name('site.login');
+
 
 route::prefix('/configAdmRotam')->group(function () {
 
