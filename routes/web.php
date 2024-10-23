@@ -20,19 +20,24 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/portfolio', [PortfolioController::class, 'inicioPortfolio'])->name('site.portfolio');
 Route::get('/artigos', [ArtigosController::class, 'inicioArtigos'])->name('site.artigos');
 Route::get('/galeria', [GaleriaController::class, 'inicioGaleria'])->name('site.galeria');
-Route::get('/register', AuthController::class, 'index' )->name('site.register');
-Route::get('/login', [LoginController::class, 'index'])->name('site.login');
+Route::get('/register', [AuthController::class, 'index'])->name('site.register');
+Route::get('/login', function() {return view('login');})->name('site.login');
+Route::post('/login', [AuthController::class, 'login'])->name('site.login.post');
 
 
-route::prefix('/configAdmRotam')->group(function () {
 
-    Route::get('/', [AdmHomeController::class, 'index'])->name('conf.home');
-    Route::get('/confPortfolio', [AdmPortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
-    Route::get('/confArtigos', [AdmArtigosController::class, 'index'])->name('conf.artigos');
-    Route::get('/confGaleria', [AdmGaleriaController::class, 'index'])->name('conf.galeria');
-    Route::get('/confPerfil', [AdmPerfilController::class, 'index'])->name('conf.perfil');
-    Route::get('/confParametros', [AdmParametroController::class, 'index'])->name('conf.parametros');
-    
+
+
+Route::middleware(['auth'])->group(function () {
+    route::prefix('/configAdmRotam')->group(function () {
+
+        Route::get('/', [AdmHomeController::class, 'index'])->name('conf.home');
+        Route::get('/confPortfolio', [AdmPortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
+        Route::get('/confArtigos', [AdmArtigosController::class, 'index'])->name('conf.artigos');
+        Route::get('/confGaleria', [AdmGaleriaController::class, 'index'])->name('conf.galeria');
+        Route::get('/confPerfil', [AdmPerfilController::class, 'index'])->name('conf.perfil');
+        Route::get('/confParametros', [AdmParametroController::class, 'index'])->name('conf.parametros');
+    });
 });
 
 Route::fallback(function () {

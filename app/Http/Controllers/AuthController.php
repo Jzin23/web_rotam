@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use illuminate\Http\Request;
+use Facade\FlareClient\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -35,4 +36,21 @@ class AuthController extends Controller
 
         return redirect()->route('conf.home');
     }
+
+    public function login (Request $request)
+    {
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($request->only('email','password')))
+        {
+            return redirect()->route('conf.home');
+        }
+
+        return back()->withErrors(['email'=>'Essas credenciais não correspondem aos nossos registros.']);
+    }
+
 }
