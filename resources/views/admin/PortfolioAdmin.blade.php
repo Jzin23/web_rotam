@@ -19,6 +19,14 @@
         margin: 2rem;
       }
     }
+
+
+    .conquistasModel {
+      overflow: auto;
+      height: auto;
+
+    }
+
   </style>
 </head>
 
@@ -26,7 +34,7 @@
 
 
   @include('layout/menuAdmin')
-
+<div class="conteudo">
   <!-- Main Content -->
   <div class="content p-4 w-100">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -59,7 +67,7 @@
     </div>
 
 
-    <!-- Modal adicionar-->
+    <!-- Adicionar portfólio-->
     <div class="modal fade" id="AdicionarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -136,7 +144,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Editando Portfólio</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Conquista/Historia</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -148,11 +156,12 @@
           </div>
           <hr>
 
-          <div class="conquistasModel" style="  height:15rem;">
+          <div class="conquistasModel">
             <div class="form-floating">
               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
                 rows="3"></textarea>
               <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
+              <button class="btn btn-success">Adicionar Conquista</button>
             </div>
 
             <hr>
@@ -163,9 +172,25 @@
               <button class="btn btn-danger">X</button>
               <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
             </div>
-          </div>
+
             <hr>
-          <button class="btn btn-success">Adicionar Conquista</button>
+            <div class="form-group">
+
+              <textarea class="form-control" id="exampleFormControlTextarea1" disabled="disabled">Texto de uma conquista adicionado</textarea>
+              <button class="btn btn-danger">X</button>
+              <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+            </div>
+
+            <hr>
+            <div class="form-group">
+
+              <textarea class="form-control" id="exampleFormControlTextarea1" disabled="disabled">Texto de uma conquista adicionado</textarea>
+              <button class="btn btn-danger">X</button>
+              <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+            </div>
+
+          </div>
+          <hr>
 
           </form>
 
@@ -193,6 +218,7 @@
         </div>
       </div>
     </div>
-</body>
+</div>
+  </body>
 
 </html>

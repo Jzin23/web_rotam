@@ -1,7 +1,8 @@
 <style>
     #menu-admin {
-        width: 35vh;
+        width: 40vh;
         height: 100vh;
+        
     }
 
     .list-group-item {
