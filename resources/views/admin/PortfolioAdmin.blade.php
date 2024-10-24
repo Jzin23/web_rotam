@@ -26,6 +26,11 @@
       height: auto;
 
     }
+    #cabecalho{
+      border: 5px solid #000;
+      padding: 1rem;
+      width: 90rem;
+    }
 
   </style>
 </head>
@@ -36,8 +41,8 @@
   @include('layout/menuAdmin')
 <div class="conteudo">
   <!-- Main Content -->
-  <div class="content p-4 w-100">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+  <div  class="content p-4 w-100">
+    <div id="cabecalho"class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="text-dark">Portfólio</h1>
       <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarModal">Portfolio +</button>
     </div>

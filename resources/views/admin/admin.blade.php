@@ -9,9 +9,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./../../css/app.css">
     <style>
+       #menu{
+        width: 20%;
+       }
         #quantitativo {
             background-color: #ccc;
-            width: 163vh;
+            width: 81%;
             height: 50vh;
             top: 0;
             position: absolute;
@@ -29,12 +32,17 @@
 </head>
 
 <body>
-    @include('layout.menuAdmin')
-    <div id="quantitativo">
-        <H1>Portfolio</H1>
-        <H1>Artigos</H1>
-
-    </div>
+        <div id="conteudo">
+            
+            <div id="quantitativo">
+                <H1>Portfolio</H1>
+                <H1>Artigos</H1>
+                
+            </div>
+            <div id="menu">
+            @include('layout.menuAdmin')
+            </div>
+        </div>
 
 
 </body>

@@ -26,7 +26,6 @@
 
             <li class="list-group-item"><i class="bi bi-images"></i> <a href="{{ Route('conf.galeria') }}">Galeria</a></li>
 
-            <li class="list-group-item"><i class="bi bi-sliders"></i> <a href="{{Route('conf.parametros')}}">Parametros</a> </li>
 
             <li class="list-group-item"><i class="bi bi-box-arrow-left"></i> <a href="{{ Route('index') }}">Sair</a></li>
 
