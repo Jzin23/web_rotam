@@ -8,18 +8,20 @@
 </p>
 
 ## Instalar dependências do PHP 
-composer install
+`composer install`
 
 ## Configurar o arquivo .env
 
-cp .env.example .env
+`cp .env.example .env`
 
 
 ## Gerar a chave da aplicação
 
- php artisan key:generate
+ php artisan `key:generate`
 
 
 ## Executar migrations
+ 
+`php artisan migrate`
+ 
 
-php artisan migrate
