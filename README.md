@@ -17,7 +17,7 @@
 
 ## Gerar a chave da aplicação
 
- php artisan `key:generate`
+ `php artisan key:generate`
 
 
 ## Executar migrations
@@ -25,3 +25,15 @@
 `php artisan migrate`
  
 
+# Inserir usuário via prompt
+
+## Iniciar ferramenta tinker do Laravel
+
+`php artisan tinker`
+
+## Instancia o model "User"
+
+`use App\Models\User`
+
+## Comando para criar o usuário 
+`User::create(['name' => 'O_login_do_usuario', 'email' => 'email_do_usuario@example.com', 'password' => Hash::make('A_senha_do_usuario')]);`
