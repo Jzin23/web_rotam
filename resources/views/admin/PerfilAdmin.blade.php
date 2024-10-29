@@ -29,6 +29,11 @@
       padding: 0.5rem;
 
     }
+    .conteudo{
+      right: 1rem;
+      position:absolute;
+      border: 10px solid #000;
+    }
   </style>
 </head>
 
@@ -38,8 +43,9 @@
 
   <div id="conteudo">
     <div id="cabecalho">
-      <h1>Perfil</h1>
+      <h1 class="text-warning">Perfil</h1>
     </div>
+
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">Perfil do usuário</a>
@@ -57,7 +63,7 @@
         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
       </li>
     </ul>
-
+  </div>
 
 
 </body>

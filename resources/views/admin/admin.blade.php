@@ -9,9 +9,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./../../css/app.css">
     <style>
-       #menu{
-        width: 20%;
-       }
+        #menu {
+            width: 20%;
+        }
+
         #quantitativo {
             background-color: #ccc;
             width: 81%;
@@ -28,21 +29,28 @@
             padding: 20vh;
 
         }
+
+        .conteudo {
+
+            right: 1rem;
+            position: absolute;
+            border: 10px solid #000;
+        }
     </style>
 </head>
 
 <body>
-        <div id="conteudo">
-            
-            <div id="quantitativo">
-                <H1>Portfolio</H1>
-                <H1>Artigos</H1>
-                
-            </div>
-            <div id="menu">
-            @include('layout.menuAdmin')
-            </div>
+    <div id="conteudo">
+
+        <div id="quantitativo">
+            <H1 class="text-warning">Portfolio</H1>
+            <H1 class="text-warning">Artigos</H1>
+
         </div>
+        <div id="menu">
+            @include('layout.menuAdmin')
+        </div>
+    </div>
 
 
 </body>
