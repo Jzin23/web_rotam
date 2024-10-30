@@ -14,11 +14,12 @@
   <style>
     body {
       display: flex;
+      background-color: #1a1a1a;
     }
 
     #cabecalho {
       border: 5px solid #000;
-      width: 90rem;
+      width: 75vw;
       height: 5rem;
       margin: 2rem;
     }

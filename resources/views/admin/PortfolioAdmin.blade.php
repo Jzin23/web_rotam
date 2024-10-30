@@ -30,7 +30,7 @@
 
     #cabecalho {
       padding: 1rem;
-      width: 90rem;
+      width: 75vw;
 
     }
     .conteudo {

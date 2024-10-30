@@ -14,8 +14,7 @@
         }
 
         #quantitativo {
-            background-color: #ccc;
-            width: 81%;
+            width: 80vw;
             height: 50vh;
             top: 0;
             position: absolute;
@@ -31,7 +30,7 @@
         }
 
         .conteudo {
-
+            background-color: #000;
             right: 1rem;
             position: absolute;
             border: 10px solid #000;
@@ -40,6 +39,7 @@
 </head>
 
 <body>
+<div id="menu">@include('layout.menuAdmin')</div>
     <div id="conteudo">
 
         <div id="quantitativo">
@@ -47,9 +47,7 @@
             <H1 class="text-warning">Artigos</H1>
 
         </div>
-        <div id="menu">
-            @include('layout.menuAdmin')
-        </div>
+       
     </div>
 
 

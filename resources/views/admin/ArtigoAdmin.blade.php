@@ -41,11 +41,6 @@
       height: auto;
 
     }
-
-    .menu {
-      width: 33vw;
-    }
-
     .conteudo {
 
       right: 1rem;
@@ -54,7 +49,7 @@
 
     #cabecalho {
       padding: 1rem;
-      width: 90rem;
+      width: 75vw;
     }
   </style>
 </head>
@@ -70,8 +65,8 @@
 
     <div class="content p-4 w-100">
       <div id="cabecalho" class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="text-warning">Portfólio</h1>
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarModal">Portfolio +</button>
+        <h1 class="text-warning">Artigos</h1>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarModal">Artigos +</button>
       </div>
 
 
@@ -85,9 +80,6 @@
               <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#AdicionarEditarModal">
                 <i class="bi bi-pencil"></i> editar</button>
-
-
-
               <!-- Button trigger modal -->
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalExcluir">
                 <i class="bi bi-trash"></i> Excluir
