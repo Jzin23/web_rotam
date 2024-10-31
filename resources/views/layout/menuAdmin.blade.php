@@ -1,13 +1,18 @@
 <style>
     #menu-admin {
         width: 40vh;
-        height: 100vh;
-        
+        height: 100vh; 
     }
 
     .list-group-item {
         padding: 5.2vh;
         font-size: 4vh;
+        background-color: #000;
+        color: #ffff00;
+    }
+    .list-group-item a{
+        color: #ffff00;
+        text-decoration: none;
     }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -25,8 +30,6 @@
             <li class="list-group-item"><i class="bi bi-file-earmark-text"></i> <a href="{{ Route('conf.artigos') }}">Artigos</a> </li>
 
             <li class="list-group-item"><i class="bi bi-images"></i> <a href="{{ Route('conf.galeria') }}">Galeria</a></li>
-
-            <li class="list-group-item"><i class="bi bi-sliders"></i> <a href="{{Route('conf.parametros')}}">Parametros</a> </li>
 
             <li class="list-group-item"><i class="bi bi-box-arrow-left"></i> <a href="{{ Route('index') }}">Sair</a></li>
 

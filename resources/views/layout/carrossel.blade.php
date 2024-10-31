@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script>
         function abrirFoto(idFtoto) {
 
@@ -70,6 +73,7 @@
             /* roundness of the scroll thumb */
             border: 1px solid #fff000;
         }
+
         .imagensCarrocel {
             position: relative;
             width: 100%;
@@ -77,10 +81,15 @@
             overflow: auto;
             display: flex;
         }
-        .imagensCarrocel img{
+
+        .imagensCarrocel img {
             max-height: 100%;
             display: flex;
             margin: 1rem;
+        }
+
+        h3 {
+            color: #ccc;
         }
     </style>
 </head>
@@ -98,7 +107,7 @@
             <img src="{{ asset('image/rotam.jpg') }}" ID="7" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
             <img src="{{ asset('image/rotam.jpg') }}" ID="8" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
             <img src="{{ asset('image/rotam.jpg') }}" ID="9" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="10"data-bs-toggle="modal" data-bs-target="#ModalNoticia">
+            <img src="{{ asset('image/rotam.jpg') }}" ID="10" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
             <img src="{{ asset('image/rotam.jpg') }}" ID="11" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
         </div>
 
@@ -109,22 +118,23 @@
 
 
     <!--modal do carrocel -->
-    <div class="modal fade bd-example-modal-lg" id="ModalNoticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="ModalNoticia" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-            <div class="imagensCarrocel" id="imagens1">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="1">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="2">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="3">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="4">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="5">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="6">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="7">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="8">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="9">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="10">
-            <img src="{{ asset('image/rotam.jpg') }}" ID="11">
-        </div>
+                <div class="imagensCarrocel" id="imagens1">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="1">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="2">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="3">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="4">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="5">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="6">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="7">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="8">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="9">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="10">
+                    <img src="{{ asset('image/rotam.jpg') }}" ID="11">
+                </div>
             </div>
         </div>
     </div>
