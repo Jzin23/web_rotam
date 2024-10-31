@@ -9,4 +9,6 @@ class CarrocelGaleria extends Model
 {
     use HasFactory;
     protected $table = 'carrocel_galerias';
+    protected $fillable = ['descricao'];
+
 }

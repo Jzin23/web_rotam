@@ -16,7 +16,7 @@ class GaleriaFotos extends Migration
         Schema::create('galeria_fotos', function (Blueprint $table) {
             
             $table->id('id_foto'); 
-            $table->unsignedBigInteger('id_carrocel'); 
+            $table->unsignedBigInteger('id_carrocel')->nullable(); 
             $table->string('foto',100)->default("Imagem não definida no banco de dados"); 
             $table->timestamps();
 

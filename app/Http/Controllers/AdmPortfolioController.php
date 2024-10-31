@@ -18,7 +18,7 @@ class AdmPortfolioController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostrar o formulário para criar um novo recurso.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +35,7 @@ class AdmPortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

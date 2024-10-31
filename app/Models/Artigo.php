@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Artigo extends Model
 {
     use HasFactory;
+
+    protected $table = 'artigos';
+    protected $fillable = ['titulo', 'subtitulo'];
 }
