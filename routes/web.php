@@ -34,9 +34,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [AdmHomeController::class, 'index'])->name('conf.home');
         Route::get('/confPortfolio', [AdmPortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
         Route::get('/confArtigos', [AdmArtigosController::class, 'index'])->name('conf.artigos');
+        Route::post('/confArtigos/salvar', [AdmArtigosController::class, 'store'])->name('conf.artigos.store');
         Route::get('/confGaleria', [AdmGaleriaController::class, 'index'])->name('conf.galeria');
         Route::get('/confPerfil', [AdmPerfilController::class, 'index'])->name('conf.perfil');
         Route::get('/confParametros', [AdmParametroController::class, 'index'])->name('conf.parametros');
+   
+
     });
 });
 
