@@ -30,11 +30,10 @@
 
     #cabecalho {
       padding: 1rem;
-      width: 75vw;
-
+      width: 70vw;
     }
     .conteudo {
-
+      width: 75%;
       right: 1rem;
       position: absolute;
     }
