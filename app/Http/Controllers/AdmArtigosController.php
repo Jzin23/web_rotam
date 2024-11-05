@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdmArtigosController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibir uma listagem do recurso.
      *
      * @return \Illuminate\Http\Response
      */

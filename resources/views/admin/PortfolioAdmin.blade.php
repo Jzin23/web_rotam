@@ -56,7 +56,7 @@
         <!-- Card 1 -->
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="{{asset('image/rotam.jpg')}}">
+            <img src="{{asset('image/PerfilJoao.jpg')}}">
             <div class="card-body text-center">
               <h5 class="card-title">Membro 1</h5>
               <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalConquista">Conquista +
@@ -86,9 +86,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="">
+              
+              <form action="route{{'conf.portfolios.store'}}" method="POST" enctype="multipart/form-data">
                 <label> Nome do atleta</label>
-                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" name="nome_do_atleta" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
                 <hr>
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Selecione a foto do atleta</label>

@@ -28,7 +28,7 @@ class AdmPortfolioController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazene um recurso recém-criado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -39,18 +39,18 @@ class AdmPortfolioController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Exibe o recurso especificado.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function read($id)
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Exibe o formulário para edição do recurso especificado.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -61,7 +61,7 @@ class AdmPortfolioController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualiza o recurso especificado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -73,7 +73,7 @@ class AdmPortfolioController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove o recurso especificado do armazenamento.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
