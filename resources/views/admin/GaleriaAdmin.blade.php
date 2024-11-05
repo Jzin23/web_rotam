@@ -22,12 +22,13 @@
 
     #cabecalho {
       padding: 1rem;
-      width: 75vw;
+      width: 70vw;
     }
 
     .conteudo {
       right: 1rem;
       position: absolute;
+      width: 75%;
     }
 
     .imagens {
