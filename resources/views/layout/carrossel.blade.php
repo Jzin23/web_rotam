@@ -98,7 +98,7 @@
     <section class="carrossel">
         <h3>Fotos do evento x</h3>
         <div class="imagens" id="imagens1">
-            <img src="{{ asset('image/rotam.jpg') }}" id="1" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
+            <img src="{{ asset('image/equipe 2.jpg') }}" id="1" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
             <img src="{{ asset('image/rotam.jpg') }}" ID="2" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
             <img src="{{ asset('image/rotam.jpg') }}" ID="3" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
             <img src="{{ asset('image/rotam.jpg') }}" ID="4" data-bs-toggle="modal" data-bs-target="#ModalNoticia">
@@ -123,7 +123,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="imagensCarrocel" id="imagens1">
-                    <img src="{{ asset('image/rotam.jpg') }}" ID="1">
+                    <img src="{{ asset('image/equipe 2.jpg') }}" ID="1">
                     <img src="{{ asset('image/rotam.jpg') }}" ID="2">
                     <img src="{{ asset('image/rotam.jpg') }}" ID="3">
                     <img src="{{ asset('image/rotam.jpg') }}" ID="4">

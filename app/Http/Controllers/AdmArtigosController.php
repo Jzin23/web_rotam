@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artigo;
 use Illuminate\Http\Request;
 
 class AdmArtigosController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibir uma listagem do recurso.
      *
      * @return \Illuminate\Http\Response
      */
@@ -16,69 +17,17 @@ class AdmArtigosController extends Controller
         return view('admin.ArtigoAdmin');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate(['titulo' => 'required|max:255', 'subtitulo' => 'required']);
+        Artigo::create($request->all());
+
+        return redirect()->route('conf.artigos')->with('success', 'Artigo criado com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function read   () {}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function update () {}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    public function delete () {}
 }

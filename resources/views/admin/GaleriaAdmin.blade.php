@@ -26,6 +26,7 @@
     }
 
     .conteudo {
+      width: 75%;
       right: 1rem;
       position: absolute;
       width: 75%;

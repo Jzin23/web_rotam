@@ -12,3 +12,4 @@ class Artigo extends Model
     protected $table = 'artigos';
     protected $fillable = ['titulo', 'subtitulo'];
 }
+

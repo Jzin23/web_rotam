@@ -22,6 +22,7 @@
       width: 75vw;
       height: 5rem;
       margin: 2rem;
+      
     }
 
 
@@ -30,9 +31,10 @@
       padding: 0.5rem;
 
     }
-    .conteudo{
+
+    .conteudo {
       right: 1rem;
-      position:absolute;
+      position: absolute;
       border: 10px solid #000;
     }
   </style>
@@ -47,23 +49,59 @@
       <h1 class="text-warning">Perfil</h1>
     </div>
 
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Perfil do usuário</a>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="Perfil-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#Perfil-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="Perfil-tab-pane"
+          aria-selected="true">Perfil do usuário</button>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalNoticia">Usuários</a>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="Usuarios-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#Usuarios-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="Usuarios-tab-pane"
+          aria-selected="false">Usuários</button>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Endereços</a>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="contact-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#contact-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="contact-tab-pane"
+          aria-selected="false">Contatos</button>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-      </li>
+
     </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="Perfil-tab-pane" role="tabpanel" aria-labelledby="Perfil-tab" tabindex="0">
+
+        <h1>testando funcionalidade de perfil de usuários</h1>
+
+      </div>
+      <div class="tab-pane fade" id="Usuarios-tab-pane" role="tabpanel" aria-labelledby="Usuarios-tab" tabindex="0">
+        
+        <h1>testando funcionalidade de usuários</h1>  
+
+      </div>
+      <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+      
+      <h1>testando funcionalidade de Contatos</h1>
+
+      </div>
+    </div>
   </div>
 
 
