@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
+use App\Models\GaleriaFoto;
 use Illuminate\Http\Request;
 
 class AdmPortfolioController extends Controller
@@ -14,7 +16,10 @@ class AdmPortfolioController extends Controller
 
     public function inicioPortfolio()
     {
-        return view('admin.PortfolioAdmin');
+
+        $portfolios = Portfolio::with('imagem')->get();
+        
+        return view('admin.PortfolioAdmin', compact('portfolios'));
     }
 
     /**

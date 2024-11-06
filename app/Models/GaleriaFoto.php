@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class GaleriaFoto extends Model
 {
     use HasFactory;
-    protected $table= "galeria_fotos";
+    protected $table = "galeria_fotos";
     protected $fillable = ['foto'];
+
+    public function portfolio()
+    {
+        return $this->hasOne(Portfolio::class, 'id_foto', 'id_foto');
+    }
 }

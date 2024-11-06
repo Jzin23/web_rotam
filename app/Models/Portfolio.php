@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
+
     use HasFactory;
+
+    public function imagem()
+    {
+        return $this->belongsTo(GaleriaFoto::class, 'id_foto', 'id_foto');
+    }
 
     protected $fillable = ['nome_do_atleta', 'descricao_breve'];
 }
-
