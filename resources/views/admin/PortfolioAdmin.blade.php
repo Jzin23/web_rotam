@@ -20,6 +20,12 @@
         margin: 2rem;
       }
     }
+    
+    .imagem_card img{
+      width: 100%;
+      height: 40vh;
+      object-fit: contain;
+    }
 
 
     .conquistasModel {
@@ -56,7 +62,9 @@
         <!-- Card 1 -->
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="{{asset('image/PerfilJoao.jpg')}}">
+            <div class="imagem_card">
+              <img src="{{asset('image/rotam.jpg')}}">
+            </div>
             <div class="card-body text-center">
               <h5 class="card-title">Membro 1</h5>
               <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalConquista">Conquista +
