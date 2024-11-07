@@ -34,6 +34,7 @@
       overflow: auto;
       height: auto;
     }
+    
   </style>
 </head>
 
@@ -96,14 +97,14 @@
                 <hr>
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Selecione a foto do atleta</label>
-                  <input class="form-control" type="file" name="foto" id="formFile" required>
+                  <input class="form-control"  type="file" name="foto" id="formFile" required>
                 </div>
                 <hr>
                 <div class="form-floating">
                   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="descricao_breve" required></textarea>
                   <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
                 </div>
-                <button type="submit" class="btn btn-success mt-3">Salvar</button>
+                <button type="submit"  class="btn btn-success mt-3">Salvar</button>
               </form>
             </div>
             <div class="modal-footer">
