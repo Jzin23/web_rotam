@@ -77,8 +77,7 @@
         <div class="content p-4 w-100">
             <div id="cabecalho" class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="text-warning">Artigos</h1>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarModal">Artigos
-                    +</button>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarEditarModal">Artigos +</button>
             </div>
         
             <div class="row">
