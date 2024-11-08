@@ -8,7 +8,7 @@
     <style>
         .rodape{
             
-            background-color: #ccc;
+            background-color: #000;
             display: flex;
             align-items: center;
             justify-content: center;    
@@ -35,7 +35,11 @@
         }
         body{
             border: 5px solid #000;
+            color: #fff;
             
+        }
+        section i{
+            color: #ffff00;
         }
     </style>
 </head>
@@ -43,7 +47,7 @@
     <div class="rodape">
 
         <section>
-            <h3>endereco</h3>
+            <h3>Endereco</h3>
             <P>189, R. São José Operário, 113 · (65) 3624-1052</P>
             <p>359, Av. Camboriú Prq Geórgia, 177</p>
             <p>R. São José Operário, 113 - Dom Aquino, Cuiabá - MT, 78015-160</p>
@@ -51,7 +55,7 @@
         
 
         <section>
-            <h3>contato</h3>
+            <h3>Contato</h3>
             <P>(65) 3624-1052</P>
             <P>(65) 3624-1052</P>
             <p>(65) 99607-9696</p>
@@ -59,10 +63,11 @@
         </section>
 
         <section>
-            <h3>redes sociais</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit autem doloremque quo praesentium ea facilis a dolores et eveniet, nobis, cumque reiciendis aliquam quas commodi nam explicabo nisi ut atque?</p>
-            <i class="bi bi-instagram"></i>
-            <i class="bi bi-facebook"></i>
+            <h3>Redes sociais</h3>
+            <p>Para mais informações sobre o projeto, pode visitar ou entrar em contato através dos meios:</p>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="https://drive.google.com/drive/folders/12kXRSvD3FUrwRkbUrb5gjdwpXYSYWPtn"><i class="bi bi-whatsapp"></i></a>
         </section>
         
         

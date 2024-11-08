@@ -177,7 +177,7 @@
         <div class="row">
         <div class="col-md-12">
           <div class="page-header">
-            <h1>A historia da academia</h1>
+            <h1>Informações sobre a academia</h1>
           </div>
           <div style="display:inline-block;width:100%;overflow-y:auto;">
           <ul class="timeline timeline-horizontal">
@@ -185,10 +185,11 @@
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Conto de historia 1</h4>
+                  <h4 class="timeline-title">PRIMEIRA AULA</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis faiz elementum girarzis, nisi eros gostis.</p>
+                  <p>	Todo inicio  é muito difícil  e desta forma não foi diferente com o Projeto Jiu-Jitsu ROTAM. Nossa primeira aula, se iniciou no  dia 06 de Fevereiro de 2013, dentro da sala de instrução do Batalhão ROTAM e com apenas 10 alunos da LBV, que fica ao lado do Batalhão e com 18 placas de tatames emprestados, para podermos  dar inicio as aulas de Jiu-jitsu.
+                  </p>
                 </div>
               </div>
             </li>
@@ -196,10 +197,11 @@
               <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Conto de historia 2</h4>
+                  <h4 class="timeline-title">OBJETIVOS GERAIS</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Mussum ipsum cacilds, vidis faiz elementum girarzis, nisi eros gostis.</p>
+                  <p>Melhorar, através dos ensinamentos do Jiu-Jitsu, a auto estima, a disciplina a cidadania, o convívio familiar, a integração na comunidade, provocando com  isso uma verdadeira mudança na vida das crianças e adolescentes.
+                  </p>
                 </div>
               </div>
             </li>
@@ -207,10 +209,11 @@
               <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Conto de historia 3</h4>
+                  <h4 class="timeline-title">OBJETIVOS ESPECIFICOS</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipisci. Mé faiz elementum girarzis, nisi eros gostis.</p>
+                  <p>Acompanhar a evolução comportamental dos atletas na escola e no lar, através da parceria com os pais, nos mantendo sempre informados das alterações comportamentais adversas que possam estar ocorrendo.
+                  </p>
                 </div>
               </div>
             </li>
@@ -218,10 +221,11 @@
               <div class="timeline-badge danger"><i class="glyphicon glyphicon-check"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Conto de historia 4</h4>
+                  <h4 class="timeline-title">IMPORTÂNCIA DO PROJETO</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+                  <p>	Ao longo destes seis anos de trabalho social ensinando e orientando nossos jovens a serem excelentes cidadãos, desenvolveu-se um vinculo muito grande com os pais da comunidade, no qual enxergam em nosso trabalho como uma grande ferramenta para desenvolvimento e transformação destes jovens em ótimas referencias no convívio familiar e social.
+                  </p>
                 </div>
               </div>
             </li>
@@ -229,21 +233,11 @@
               <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Conto de historia 5</h4>
+                  <h4 class="timeline-title">Justificativa</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Conto de historia 6</h4>
-                </div>
-                <div class="timeline-body">
-                  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
+                  <p>O Jiu-Jitsu não é apenas uma luta de arte marcial em que o objetivo é do adversário e apenas lutar. Do inicio ao fim das aulas, são envolvidas na riqueza de uma filosofia que transforma a disciplina e o equilíbrio em forma de viver e respeitar o semelhante.
+                  </p>
                 </div>
               </div>
             </li>

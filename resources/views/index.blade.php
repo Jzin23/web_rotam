@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        
         ::-webkit-scrollbar {
             display: none;
         }
-        #banner {
+
+        #banner_inicio {
             width: 100vw;
             height: 85vh;
             background-color: #ccc;
@@ -80,7 +80,7 @@
                 display: flex;
                 justify-content: center;
             }
-            
+
             .texto_conquista_missao {
                 position: relative;
                 top: 2rem;
@@ -89,9 +89,6 @@
             }
 
         }
-
-
-
         #section_1 {
             background-color: #fff;
 
@@ -106,7 +103,6 @@
 
 
         }
-
         #section_2 {
             background-color: #000;
 
@@ -118,7 +114,17 @@
                 color: #fff;
             }
         }
-
+        #banner_gremio {
+            width: 100vw;
+            height: 85vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-transform: scale(1.0)
+        }
+        
         #gremio_section_1 {
             background-color: #fff;
 
@@ -133,7 +139,6 @@
 
 
         }
-
         #gremio_section_2 {
             background-color: #000;
 
@@ -145,11 +150,10 @@
                 color: #fff;
             }
         }
-
         .historia {
             position: relative;
             background-color: #000;
-                height: 70rem;
+            height: 70rem;
         }
     </style>
 </head>
@@ -159,18 +163,17 @@
     @include('layout/menu')
 
 
-    <div id="banner">
+    <div id="banner_inicio">
         <img src="{{ asset('image/rotam.jpg') }}" alt="logo" id="fundo">
         <div class="filtro">
             <h1>Projeto Social Jiu Jitsu</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsum dicta illum assumenda
-                consequatur, nostrum voluptatibus voluptas tenetur molestias et officiis. Fugit voluptatem aliquam
-                similique veniam officia animi nam illo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                similique molestias nemo, perferendis aspernatur tenetur rem asperiores inventore pariatur assumenda!
-                Magnam quam quisquam a facere quia laborum porro qui quibusdam!
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis facere quae amet numquam praesentium,
-                vero consequuntur vitae minima! Aliquid quidem quibusdam, nulla temporibus magni ipsa eveniet
-                accusantium nobis expedita necessitatibus.
+            <p>O projeto social Jiu-Jitsu ROTAM – Formando Cidadãos, é um projeto de prevenção primaria que tem a
+                realização e coordenação do (Batalhão de ROTAM), com parceria do Grêmio Recreativo e Esportivo ROTAM
+                (G.R.E.R), e com registro e certificação Conselho Municipal da Criança e do Adolescente de Cuiabá. A
+                coordenação é realizada por policiais pertencentes ao Batalhão ROTAM da Polícia Militar do Estado de
+                Mato Grosso, Certificados e licenciados para instrução de artes marciais (Braziliam Jiu-Jitsu) através
+                da equipe Checkmat Brasil – Na qual seu lider Ricardo Alcantara Vieria – Faixa preta 4 Graus Licenciado
+                pela Confederação Brasileira de Jiu-Jitsu (CBJJ) e International Brazilian Jiu-Jitsu Federation.
 
             </p>
         </div>
@@ -179,21 +182,40 @@
         <section class="conquista_missao_sub" id="section_1">
             <div class="texto_conquista_missao">
                 <h1>CONQUISTAS</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+                <p> Sabendo da localização e a importância do Batalhão ROTAM dentro da comunidade do bairro Dom Aquino e
+                    região, podemos atender ocorrências complexas com maior velocidade por estarmos em uma região
+                    central e assim, dando maior sensação de segurança para toda Grande Cuiabá. Com a mesma intensão,
+                    Projeto Jiu-Jitsu ROTAM, consegue atender também, uma maior quantidade de pessoas devido ao seu
+                    local que é de fácil acesso e bem localizado.
+                </p>
+                <p>PROJETO JIU-JITSU ROTAM, desde seu primeiro ano de existência vem conquistando inúmeros títulos
+                    estaduais e conforme fomos crescendo conseguimos também titulos a nível nacional. Todo nosso
+                    trabalho foi iniciado e desenvolvido do zero e dentro do Batalhão ROTAM. Certamente que com o apoio
+                    e incentivo proporcional ao projeto, certamente conquistaremos competições internacionais. Além de
+                    transformar a vida destes atletas, estaremos incentivando um maior numero de crianças que irão se
+                    espelhar nestes pequenos campeões.
+                </p>
             </div>
         </section>
         <section class="conquista_missao_sub" id="section_2">
             <div class="texto_conquista_missao">
                 <h1>MISSÃO</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
+                <p>Envolver as crianças e adolescentes em situação de vulnerabilidade social, bem como suas famílias,
+                    num conjunto de ações que possibilitam a construção da cidadania e do desenvolvimento físico
+                    psicológico e educacional dos mesmos;
+                </p>
+
+                <p>• Estimular e promover atividades voltadas para a formação da criança e do adolescente numa
+                    perspectiva de colaborar com seu processo de evolução, como parte integrante da sociedade;
+                </p>
+                <p>• Melhorar, através dos ensinamentos do Jiu-Jitsu, a auto estima, a disciplina a cidadania, o
+                    convívio familiar, a integração na comunidade, provocando com isso uma verdadeira mudança na vida
+                    das crianças e adolescentes.
+                </p>
             </div>
 
         </section>
     </section>
-
-
-
-
 
     <section class="historia">
         <div>
@@ -205,36 +227,22 @@
 
 
 
-    <div id="banner">
-
+    <div id="banner_gremio">
+        <img src="{{ asset('image/gremio.png') }}" alt="logo" id="fundo">
         <div class="filtro">
             <h1>O GREMIO</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsum dicta illum assumenda
-                consequatur, nostrum voluptatibus voluptas tenetur molestias et officiis. Fugit voluptatem aliquam
-                similique veniam officia animi nam illo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                similique molestias nemo, perferendis aspernatur tenetur rem asperiores inventore pariatur assumenda!
-                Magnam quam quisquam a facere quia laborum porro qui quibusdam!
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis facere quae amet numquam praesentium,
-                vero consequuntur vitae minima! Aliquid quidem quibusdam, nulla temporibus magni ipsa eveniet
-                accusantium nobis expedita necessitatibus.
+            <p>O projeto social JIU-JITSU ROTAM – Formando Cidadãos, é um projeto de prevenção primaria que tem a
+                realização e coordenação do (Batalhão de ROTAM), com parceria do Grêmio Recreativo e Esportivo ROTAM
+                (G.R.E.R), e com registro e certificação Conselho Municipal da Criança e do Adolescente de Cuiabá. A
+                coordenação é realizada por policiais pertencentes ao Batalhão ROTAM da Polícia Militar do Estado de
+                Mato Grosso, Certificados e licenciados para instrução de artes marciais (Braziliam Jiu-Jitsu) através
+                da equipe Checkmat Brasil – Na qual seu lider Ricardo Alcantara Vieria – Faixa preta 4 Graus Licenciado
+                pela Federação Brasileira de Jiu-Jitsu (CBJJ) e International Brazilian Jiu-Jitsu Federation.
+
 
             </p>
         </div>
     </div>
-    <section class="conquista_missao">
-        <section class="conquista_missao_sub" id="gremio_section_1">
-            <div class="texto_conquista_missao">
-                <h1>CONQUISTAS</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
-            </div>
-        </section>
-        <section class="conquista_missao_sub" id="gremio_section_2">
-            <div class="texto_conquista_missao">
-                <h1>MISSÃO</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum debitis ipsum asperiores magnam maiores in ad. Provident repellat officiis unde, debitis natus assumenda error veritatis earum doloribus repudiandae? Reprehenderit, quam?</p>
-            </div>
-        </section>
-    </section>
 
 
     @include('layout/rodape')
