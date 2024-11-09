@@ -11,39 +11,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
-<script>
-    // Preenche os campos do modal de edição com as informações do portfólio selecionado
-    const editModal = document.getElementById('exampleModal');
-    editModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Botão que abriu o modal
-        const id = button.getAttribute('data-id');
-        const nome = button.getAttribute('data-nome');
-        const descricao = button.getAttribute('data-descricao');
-        const foto = button.getAttribute('data-foto');
-
-        // Preenche os campos do modal
-        const nomeInput = editModal.querySelector('#nome_atleta');
-        const descricaoTextarea = editModal.querySelector('#floatingTextarea');
-        const fotoInput = editModal.querySelector('#formFile');
-
-        nomeInput.value = nome;
-        descricaoTextarea.value = descricao;
-
-        // Exibir a foto se houver
-        const imgPreview = editModal.querySelector('#imgPreview');
-        if (foto) {
-            imgPreview.src = foto;
-            imgPreview.style.display = 'block'; // Certifique-se que a imagem é visível
-        } else {
-            imgPreview.style.display = 'none'; // Se não houver foto, ocultar
-        }
-
-        // Atualiza a URL do formulário para o ID do portfólio
-        const form = editModal.querySelector('form');
-        form.action = /confPortfolio/update/{id_portfolio}; // Rota para atualizar o portfólio
-    });
-</script>
-
 
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -109,6 +76,7 @@
                                 <button class="btn btn-success" data-bs-toggle="modal"
                                     data-bs-target="#ModalConquista">Conquista +</button>
 
+                                <!-- Botão editar que chama o script -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-id="{{ $portfolio->id_portfolio }}"
                                     data-nome="{{ $portfolio->nome_atleta }}"
@@ -117,11 +85,94 @@
                                     <i class="bi bi-pencil"></i> Editar
                                 </button>
 
+                                <!-- Botão excluir que chama o script -->
                                 <button class="btn
                                     btn-danger"
                                     data-bs-toggle="modal" data-bs-target="#ModalExcluir">
                                     <i class="bi bi-trash"></i> Excluir
                                 </button>
+
+                                <!-- Script que atualiza o parametro do formulario de edição ao clicar no botão editar -->
+                                <script>
+                                    // Quando o botão de "Editar" for clicado
+                                    document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#exampleModal"]').forEach(button => {
+                                        button.addEventListener('click', function() {
+                                            // Recuperando os dados do botão
+                                            const id = this.getAttribute('data-id');
+                                            const nomeAtleta = this.getAttribute('data-nome');
+                                            const descricao = this.getAttribute('data-descricao');
+                                            const foto = this.getAttribute('data-foto');
+
+                                            // Preenchendo os campos do modal com os dados recuperados
+                                            document.getElementById('nome_atleta').value = nomeAtleta;
+                                            document.getElementById('floatingTextarea').value = descricao;
+
+                                            // Exibindo a imagem caso exista
+                                            const imgPreview = document.getElementById('imgPreview');
+                                            if (foto) {
+                                                imgPreview.style.display = 'block';
+                                                imgPreview.src = foto;
+                                            } else {
+                                                imgPreview.style.display = 'none';
+                                            }
+
+                                            // Alterando a ação do formulário para enviar para o URL correto
+                                            const form = document.getElementById('editForm');
+                                            form.action = `/confPortfolio/update/{id_portfolio}`; // Atualiza o action com o ID correto
+                                        });
+                                    });
+                                </script>
+
+                                <!-- Modal Editar -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editando Portfólio
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- O formulário já está vazio e será preenchido com os dados via JavaScript -->
+                                                <form id="editForm"
+                                                    action="{{ route('conf.portfolios.update' , $portfolio->id_portfolio) }}"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <label>Nome do atleta</label>
+                                                    <input id="nome_atleta" type="text" name="nome_atleta"
+                                                        class="form-control" value="{{ $portfolio->nome_atleta }}">
+                                                    <hr>
+
+                                                    <div class="mb-3">
+                                                        <label for="formFile" class="form-label">Selecione a foto do
+                                                            atleta</label>
+                                                        <input class="form-control" type="file" name="foto"
+                                                            id="formFile">
+                                                        <img id="imgPreview" src="" alt="Imagem do atleta"
+                                                            style="display:none; margin-top:10px; width:100px;">
+                                                    </div>
+                                                    <hr>
+
+                                                    <div class="form-floating">
+                                                        <textarea class="form-control" id="floatingTextarea" name="descricao_breve"></textarea>
+                                                        <label for="floatingTextarea">Apresente aqui uma breve descrição
+                                                            do atleta</label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" form="editForm"
+                                                    class="btn btn-success mt-3">Salvar alterações</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Fechar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -148,11 +199,13 @@
                                 <hr>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Selecione a foto do atleta</label>
-                                    <input class="form-control" type="file" name="foto" id="formFile" required>
+                                    <input class="form-control" type="file" name="foto" id="formFile"
+                                        required>
                                 </div>
                                 <hr>
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="descricao_breve" required></textarea>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="descricao_breve"
+                                        required></textarea>
                                     <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
                                 </div>
                                 <button type="submit" class="btn btn-success mt-3">Salvar</button>
@@ -167,44 +220,7 @@
                 </div>
             </div>
 
-           <!-- Modal Editar -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editando Portfólio</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- O formulário já está vazio e será preenchido com os dados via JavaScript -->
-                <form id="editForm" action="{{ route('conf.portfolios.update', $portfolio->id_portfolio) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
 
-                    <label>Nome do atleta</label>
-                    <input id="nome_atleta" type="text" name="nome_atleta" class="form-control" value="{{ $portfolio->nome_atleta }}">
-                    <hr>
-
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Selecione a foto do atleta</label>
-                        <input class="form-control" type="file" name="foto" id="formFile">
-                        <img id="imgPreview" src="" alt="Imagem do atleta" style="display:none; margin-top:10px; width:100px;">
-                    </div>
-                    <hr>
-
-                    <div class="form-floating">
-                        <textarea class="form-control" id="floatingTextarea" name="descricao_breve"></textarea>
-                        <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" form="editForm" class="btn btn-success mt-3">Salvar alterações</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
             <!-- Modal Excluir -->
             <div class="modal fade" id="ModalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel"

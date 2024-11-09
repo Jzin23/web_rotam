@@ -19,19 +19,8 @@ class AdmPortfolioController extends Controller
     {
 
         $portfolios = Portfolio::with('imagem')->get();
-        
-        return view('admin.portfolioAdmin', compact('portfolios'));
-    }
-    
 
-    /**
-     * Mostrar o formulário para criar um novo recurso.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('admin.portfolioAdmin', compact('portfolios'));
     }
 
     /**
@@ -42,7 +31,38 @@ class AdmPortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // Validação dos dados
+        $request->validate([
+            'nome_atleta' => 'required|string|max:255',
+            'descricao_breve' => 'required|string',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',  // Validação da foto
+        ]);
+
+        // Criando um novo Portfólio
+        $portfolio = new Portfolio();
+        $portfolio->nome_atleta = $request->input('nome_atleta');
+        $portfolio->descricao_breve = $request->input('descricao_breve');
+
+        // Salvar o portfólio (sem a imagem)
+        $portfolio->save();
+
+        // Caso tenha uma imagem, faça o upload
+        if ($request->hasFile('foto')) {
+            // Armazenar a foto na pasta 'public/images' e recuperar o caminho
+            $filePath = $request->file('foto')->store('public/images');
+
+            // Criar uma nova entrada na tabela 'galeria_fotos' associada ao portfólio
+            $foto = new GaleriaFoto();
+            $foto->foto = basename($filePath);  // Salvar o nome do arquivo (sem o caminho)
+            $foto->save();  // Salvar a foto no banco de dados
+
+            // Associa a foto ao portfólio
+            $portfolio->id_foto = $foto->id_foto;
+            $portfolio->save();
+        }
+
+        // Redirecionar de volta para a página de portfólios com uma mensagem de sucesso
+        return redirect()->route('conf.portfolios.index')->with('success', 'Portfólio criado com sucesso!');
     }
 
     /**
@@ -62,32 +82,14 @@ class AdmPortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-public function edit(Request $request, $id)
-{   
-     $portfolio = Portfolio::findOrFail($id);
+    public function edit(Request $request, $id)
+    {
+        // Encontre o portfólio pelo ID
+        $portfolio = Portfolio::findOrFail($id);
 
-    // Validação dos dados (caso necessário)
-    $request->validate([
-        'nome_atleta' => 'required|string|max:255',
-        'descricao_breve' => 'required|string',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-    ]);
-
-    // Atualizar os dados do portfólio
-    $portfolio->nome_atleta = $request->input('nome_atleta');
-    $portfolio->descricao_breve = $request->input('descricao_breve');
-
-    // Atualizar a foto (se houver uma nova)
-    if ($request->hasFile('foto')) {
-        $filePath = $request->file('foto')->store('public/images');
-        $portfolio->imagem()->updateOrCreate(['portfolio_id' => $portfolio->id], ['foto' => basename($filePath)]);
+        // Retorne a visão com os dados do portfólio para edição
+        return view('admin.portfolioEdit', compact('portfolio'));
     }
-
-    $portfolio->save();
-
-    // Redirecionar de volta para a página de portfólios
-    return redirect()->route('conf.portfolio')->with('success', 'Portfólio atualizado com sucesso!');
-}
 
     /**
      * Atualiza o recurso especificado no armazenamento.
@@ -98,7 +100,37 @@ public function edit(Request $request, $id)
      */
     public function update(Request $request, $id)
     {
-        //
+        // Encontre o portfólio
+        $portfolio = Portfolio::findOrFail($id);
+
+        // Validação dos dados do formulário
+        $request->validate([
+            'nome_atleta' => 'required|string|max:255',
+            'descricao_breve' => 'required|string',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+        ]);
+
+        // Atualizar os dados
+        $portfolio->nome_atleta = $request->input('nome_atleta');
+        $portfolio->descricao_breve = $request->input('descricao_breve');
+
+        // Verifique se foi enviado uma nova foto e atualize
+        if ($request->hasFile('foto')) {
+            $filePath = $request->file('foto')->store('public/images');
+            // Atualize a foto associada ao portfólio
+            $foto = new GaleriaFoto();
+            $foto->foto = basename($filePath);
+            $foto->save();
+
+            // Atualize o relacionamento de foto
+            $portfolio->id_foto = $foto->id_foto;
+        }
+
+        // Salve as alterações no portfólio
+        $portfolio->save();
+
+        // Redirecione de volta para a lista de portfólios com uma mensagem de sucesso
+        return redirect()->route('conf.portfolio')->with('success', 'Portfólio atualizado com sucesso!');
     }
 
     /**

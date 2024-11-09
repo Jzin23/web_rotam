@@ -41,11 +41,14 @@
             height: auto;
 
         }
-        .imagem_card img{
+
+        .imagem_card img {
             width: 100%;
             height: 40vh;
-            object-fit: contain; /*não  deixa torcer a imagem dentro da div*/
+            object-fit: contain;
+            /*não  deixa torcer a imagem dentro da div*/
         }
+
         .conteudo {
             width: 75%;
             right: 1rem;
@@ -77,11 +80,15 @@
         <div class="content p-4 w-100">
             <div id="cabecalho" class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="text-warning">Artigos</h1>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarEditarModal">Artigos +</button>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarEditarModal">Artigos
+                    +</button>
             </div>
-        
+
             <div class="row">
                 <!-- Card 1 -->
+                @for ( = ;  < ; i++)
+                    
+               
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="imagem_card">
@@ -93,6 +100,7 @@
                                 data-bs-target="#AdicionarEditarModal">
                                 <i class="bi bi-pencil"></i> editar</button>
 
+
                             <!-- Button trigger modal -->
                             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalExcluir">
                                 <i class="bi bi-trash"></i> Excluir
@@ -100,6 +108,8 @@
                         </div>
                     </div>
                 </div>
+
+ @endfor
             </div>
         </div>
 

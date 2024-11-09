@@ -34,8 +34,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [AdmHomeController::class, 'index'])->name('conf.home');
        
         Route::get('/confPortfolio', [AdmPortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
-        Route::post('/confPortfolio/salvar', [AdmPortfolioController::class, 'create'])->name('conf.portfolios.store');
-        Route::put('/confPortfolio/update/{id_portfolio}', [AdmPortfolioController::class, 'edit'])->name('conf.portfolios.update');
+        Route::post('/confPortfolio/salvar', [AdmPortfolioController::class, 'store'])->name('conf.portfolios.store');
+        Route::put('/confPortfolio/update/{id_portfolio}', [AdmPortfolioController::class, 'update'])->name('conf.portfolios.update');
 
         Route::get('/confArtigos', [AdmArtigosController::class, 'index'])->name('conf.artigos');
        
