@@ -123,7 +123,7 @@
                                     });
                                 </script>
 
-                                <!-- Modal Editar -->
+            <!-- Modal Editar -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -180,7 +180,6 @@
                 @endforeach
             </div>
 
-            <!-- Modais para adicionar, editar e excluir portfólio (já existentes no seu código) -->
             <!-- Modal Adicionar -->
             <div class="modal fade" id="AdicionarModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
