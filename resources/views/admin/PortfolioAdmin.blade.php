@@ -38,6 +38,12 @@
             overflow: auto;
             height: auto;
         }
+        .imagem img {
+            width: 100%;
+            height: 40vh;
+            object-fit: contain;
+            /*não  deixa torcer a imagem dentro da div*/
+        }
     </style>
 </head>
 
@@ -61,8 +67,10 @@
                         <div class="card">
                             <!-- Verifica se há uma imagem associada ao portfólio -->
                             @if ($portfolio->imagem)
-                                <img src="{{ asset('image/' . $portfolio->imagem->foto) }}" class="card-img-top"
-                                    alt="Imagem do Atleta">
+                               <div class="imagem">
+                               <img src="{{ asset('image/' . $portfolio->imagem->foto) }}" class="card-img-top"
+                               alt="Imagem do Atleta">
+                               </div>
                             @else
                                 <img src="https://via.placeholder.com/300x200" class="card-img-top"
                                     alt="Imagem não encontrada">
