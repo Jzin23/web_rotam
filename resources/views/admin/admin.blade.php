@@ -43,8 +43,8 @@
     <div id="conteudo">
 
         <div id="quantitativo">
-            <H1 class="text-warning">Portfolio</H1>
-            <H1 class="text-warning">Artigos</H1>
+            <H1 class="text-warning">Seja bem-vindo</H1>
+            <H1 class="text-warning">Mestre</H1>
 
         </div>
        
