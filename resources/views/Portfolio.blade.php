@@ -10,47 +10,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
+        body{
+            background-color: #000;
+        }
+        h1{
+            color: #fff000;
+        }
+        .card {
+            margin: 5rem;
+        }
+
+        .card-deck {
             display: flex;
-            background-color: #1a1a1a;
+
+            .card {
+                margin: 5rem;
+            }
         }
 
-        .conteudo {
-            width: 75%;
-            right: 1rem;
-            position: absolute;
-        }
-
-        #cabecalho {
-            padding: 1rem;
-            width: 70vw;
-        }
-
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            background-color: #2c2c2c;
-        }
-
-        .card-title {
-            color: #fff;
-        }
-
-        .portfolio {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .modal-content p, h6, h1 {
+        .modal-content p,
+        h6,
+        h1 {
             padding: 2rem;
         }
     </style>
 </head>
-
+@section('titulo', ' PORTFOLIO')
+@include('layout/menu')
 <body>
 
   <div class="conteudo">
@@ -96,6 +82,6 @@
       @endforeach
     </div>
   </div>
-
+  @include('layout/rodape')
 </body>
 </html>
