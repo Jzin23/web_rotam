@@ -80,48 +80,78 @@
         <div class="content p-4 w-100">
             <div id="cabecalho" class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="text-warning">Artigos</h1>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarEditarModal">Artigos
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarModal">Artigos
                     +</button>
             </div>
 
             <div class="row">
-                <!-- Card 1 -->
-                @for ( = ;  < ; i++)
-                    
-               
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="imagem_card">
-                            <img src="{{ asset('image/rotam.jpg') }}">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Titulo do artigo 1</h5>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#AdicionarEditarModal">
-                                <i class="bi bi-pencil"></i> editar</button>
+                <!-- Cards -->
+                @foreach ($artigos as $artigo)
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const editButtons = document.querySelectorAll('.edit-button');
+                            const deleteButtons = document.querySelectorAll('.delete-button');
+                            const editForm = document.querySelector('#editarArtigoForm');
+                            const deleteForm = document.querySelector('#excluirArtigoForm');
+
+                            // Configuração para o modal de edição
+                            editButtons.forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const id = button.getAttribute('data-id');
+                                    const titulo = button.getAttribute('data-titulo');
+                                    const subtitulo = button.getAttribute('data-subtitulo');
+
+                                    // Define a URL de atualização
+                                    editForm.action = `/conf/artigos/update/${id}`;
+                                    document.querySelector('[name="titulo"]').value = titulo;
+                                    tinymce.get('Editor').setContent(subtitulo); // Seta conteúdo do TinyMCE
+                                });
+                            });
+
+                            // Configuração para o modal de exclusão
+                            deleteButtons.forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const id = button.getAttribute('data-id');
+                                    deleteForm.action = `/conf/artigos/destroy/${id}`; // Define a URL de exclusão
+                                });
+                            });
+                        });
+                    </script>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="imagem_card">
+                                <img src="{{ asset('image/rotam.jpg') }}" alt="Imagem do artigo">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ $artigo->titulo }}</h5>
+                                <p class="card-text">{{ $artigo->subtitulo }}</p>
+                                <button type="button" class="btn btn-primary edit-button" data-id="{{ $artigo->id }}"
+                                    data-titulo="{{ $artigo->titulo }}" data-subtitulo="{{ $artigo->subtitulo }}"
+                                    data-bs-toggle="modal" data-bs-target="#EditarModal">
+                                    <i class="bi bi-pencil"></i> Editar</button>
 
 
-                            <!-- Button trigger modal -->
-                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalExcluir">
-                                <i class="bi bi-trash"></i> Excluir
-                            </button>
+                                <button type="button" class="btn btn-danger" data-id="{{$artigo->id}}"
+                                data-bs-toggle="modal" data-bs-target="#ModalExcluir"
+                                >Excluir</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
- @endfor
+                @endforeach
             </div>
         </div>
 
-        <!-- Adicionar artigo-->
-        <div class="modal fade bd-example-modal-lg" id="AdicionarEditarModal" tabindex="-1" role="dialog"
+        <!-- Editar artigo-->
+        <div class="modal fade bd-example-modal-lg" id="EditarModal" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
-                    <form action="{{ route('conf.artigos.store') }}" method="POST">
+                    <form action="" method="POST" id="editarArtigoForm">
                         @csrf
-                        <h1>Adicionando/Editando artigo</h1>
+                        @method('PUT')
+                        <h1>Editando artigo</h1>
                         <div class="form-floating">
                             <textarea name="titulo" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                             <hr>
@@ -132,7 +162,32 @@
                         <hr>
 
                         <button class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#AdicionarEditarModal">Salvar</button>
+                            data-bs-target="#EditarModal">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adicionar tar artigo-->
+        <div class="modal fade bd-example-modal-lg" id="AdicionarModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <form action="{{ route('conf.artigos.store') }}" method="POST" id="artigo">
+                        @csrf
+                        <h1>Adicionando artigo</h1>
+                        <div class="form-floating">
+                            <textarea name="titulo" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                            <hr>
+                            <label for="floatingTextarea">Titulo do artigo</label>
+                            <textarea name="subtitulo" id="Editor"></textarea>
+                        </div>
+
+                        <hr>
+
+                        <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#AdicionarModal">Salvar</button>
                     </form>
                 </div>
             </div>
@@ -147,13 +202,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ATENÇÃO!!! <BR>Você deseja excluir esse Portfólio ?
+                        ATENÇÃO!!! <br>Você deseja excluir esse Portfólio?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalExcluir">
-                            Sim, desejo excluir
-                        </button>
+                        <form action="" method="POST" id="excluirArtigoForm">
+                            @csrf
+                            @method('POST')
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-danger">Sim, desejo excluir</button>
+                        </form>
                     </div>
                 </div>
             </div>

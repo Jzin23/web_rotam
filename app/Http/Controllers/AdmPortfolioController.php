@@ -20,7 +20,7 @@ class AdmPortfolioController extends Controller
 
         $portfolios = Portfolio::with('imagem')->get();
 
-        return view('admin.portfolioAdmin', compact('portfolios'));
+        return view('admin.PortfolioAdmin', compact('portfolios'));
     }
 
     /**
@@ -98,10 +98,10 @@ class AdmPortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_portfolio)
     {
         // Encontre o portfólio
-        $portfolio = Portfolio::findOrFail($id);
+        $portfolio = Portfolio::findOrFail($id_portfolio);
 
         // Validação dos dados do formulário
         $request->validate([
@@ -130,7 +130,7 @@ class AdmPortfolioController extends Controller
         $portfolio->save();
 
         // Redirecione de volta para a lista de portfólios com uma mensagem de sucesso
-        return redirect()->route('conf.portfolio')->with('success', 'Portfólio atualizado com sucesso!');
+        return redirect()->route('conf.portfolio');
     }
 
     /**

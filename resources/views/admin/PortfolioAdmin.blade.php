@@ -137,8 +137,9 @@
                                             <div class="modal-body">
                                                 <!-- O formulário já está vazio e será preenchido com os dados via JavaScript -->
                                                 <form id="editForm"
-                                                    action="{{ route('conf.portfolios.update' , $portfolio->id_portfolio) }}"
+                                                    action="{{ route('conf.portfolios.update', $portfolio->id_portfolio) }}"
                                                     method="POST" enctype="multipart/form-data">
+
                                                     @csrf
                                                     @method('PUT')
 

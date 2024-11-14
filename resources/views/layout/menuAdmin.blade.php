@@ -27,7 +27,7 @@
 
             <li class="list-group-item"><i class="bi bi-people"></i> <a href="{{ Route('conf.portfolio') }}">Portfolio</a></li>
 
-            <li class="list-group-item"><i class="bi bi-file-earmark-text"></i> <a href="{{ Route('conf.artigos') }}">Artigos</a> </li>
+            <li class="list-group-item"><i class="bi bi-file-earmark-text"></i> <a href="{{ Route('conf.artigos.index') }}">Artigos</a> </li>
 
             <li class="list-group-item"><i class="bi bi-images"></i> <a href="{{ Route('conf.galeria') }}">Galeria</a></li>
 
