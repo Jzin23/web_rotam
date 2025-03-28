@@ -10,6 +10,6 @@ class Artigo extends Model
     use HasFactory;
 
     protected $table = 'artigos';
-    protected $fillable = ['titulo', 'subtitulo'];
+    protected $fillable = ['TITULO_ART', 'SUBTITULO_ART', 'CONTEUDO_ART', 'LINK_ART', 'CAMINHO_FOTO'];
 }
 

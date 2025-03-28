@@ -17,7 +17,7 @@
 
     <script>
         tinymce.init({
-            selector: '#Editor'
+            selector: '#Editor',
         });
     </script>
 
@@ -71,11 +71,7 @@
 
         <!-- Main Content -->
 
-        @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
+
 
         <div class="content p-4 w-100">
             <div id="cabecalho" class="d-flex justify-content-between align-items-center mb-4">
@@ -87,57 +83,58 @@
             <div class="row">
                 <!-- Cards -->
                 @foreach ($artigos as $artigo)
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const editButtons = document.querySelectorAll('.edit-button');
-                            const deleteButtons = document.querySelectorAll('.delete-button');
-                            const editForm = document.querySelector('#editarArtigoForm');
-                            const deleteForm = document.querySelector('#excluirArtigoForm');
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const editButtons = document.querySelectorAll('.edit-button');
+                        const deleteButtons = document.querySelectorAll('.delete-button');
+                        const editForm = document.querySelector('#editarArtigoForm');
+                        const deleteForm = document.querySelector('#excluirArtigoForm');
 
-                            // Configuração para o modal de edição
-                            editButtons.forEach(button => {
-                                button.addEventListener('click', function() {
-                                    const id = button.getAttribute('data-id');
-                                    const titulo = button.getAttribute('data-titulo');
-                                    const subtitulo = button.getAttribute('data-subtitulo');
+                        // Configuração para o modal de edição
+                        editButtons.forEach(button => {
+                            button.addEventListener('click', function() {
+                                const id = button.getAttribute('data-id');
+                                const titulo = button.getAttribute('data-titulo');
+                                const subtitulo = button.getAttribute('data-subtitulo');
 
-                                    // Define a URL de atualização
-                                    editForm.action = `/conf/artigos/update/${id}`;
-                                    document.querySelector('[name="titulo"]').value = titulo;
-                                    tinymce.get('Editor').setContent(subtitulo); // Seta conteúdo do TinyMCE
-                                });
-                            });
-
-                            // Configuração para o modal de exclusão
-                            deleteButtons.forEach(button => {
-                                button.addEventListener('click', function() {
-                                    const id = button.getAttribute('data-id');
-                                    deleteForm.action = `/conf/artigos/destroy/${id}`; // Define a URL de exclusão
-                                });
+                                // Define a URL de atualização
+                                editForm.action = `/conf/artigos/update/${id}`;
+                                document.querySelector('[name="titulo"]').value = titulo;
+                                tinymce.get('Editor').setContent(subtitulo); // Seta conteúdo do TinyMCE
                             });
                         });
-                    </script>
 
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="imagem_card">
-                                <img src="{{ asset('image/rotam.jpg') }}" alt="Imagem do artigo">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $artigo->titulo }}</h5>
-                                <p class="card-text">{{ $artigo->subtitulo }}</p>
-                                <button type="button" class="btn btn-primary edit-button" data-id="{{ $artigo->id }}"
-                                    data-titulo="{{ $artigo->titulo }}" data-subtitulo="{{ $artigo->subtitulo }}"
-                                    data-bs-toggle="modal" data-bs-target="#EditarModal">
-                                    <i class="bi bi-pencil"></i> Editar</button>
+                        // Configuração para o modal de exclusão
+                        deleteButtons.forEach(button => {
+                            button.addEventListener('click', function() {
+                                const id = button.getAttribute('data-id');
+                                deleteForm.action = `/conf/artigos/destroy/${id}`; // Define a URL de exclusão
+                            });
+                        });
+                    });
+                </script>
 
+                 <div class="col-md-4 mb-4">
+        <div class="card h-100 d-flex flex-column">
+            <img src="{{ asset('storage/artigos/fotos/'. $artigo->CAMINHO_FOTO) }}" class="card-img-top"
+                style="height: 200px; object-fit: cover;" alt="Imagem do Artigo">
 
-                                <button type="button" class="btn btn-danger" data-id="{{$artigo->id}}"
-                                data-bs-toggle="modal" data-bs-target="#ModalExcluir"
-                                >Excluir</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card-body d-flex flex-column justify-content-between text-center">
+                <h5 class="card-title">{{ $artigo->TITULO_ART }}</h5>
+                <p class="card-text">{{ $artigo->SUBTITULO_ART }}</p>
+                
+                <div class="mt-auto"> <!-- Mantém os botões na parte inferior -->
+                    <a href="{{ $artigo->LINK_ART }}" target="_blank" class="btn btn-primary">Leia Mais</a>
+                    <button type="button" class="btn btn-warning edit-button" data-id="{{ $artigo->id }}"
+                        data-titulo="{{ $artigo->titulo }}" data-bs-toggle="modal" data-bs-target="#EditarModal">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button type="button" class="btn btn-danger" data-id="{{ $artigo->id }}"
+                        data-bs-toggle="modal" data-bs-target="#ModalExcluir">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
                 @endforeach
             </div>
         </div>
@@ -174,14 +171,32 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
-                    <form action="{{ route('conf.artigos.store') }}" method="POST" id="artigo">
+                    <form action="{{ route('conf.artigos.store') }}" method="POST" id="artigo"
+                        enctype="multipart/form-data">
                         @csrf
-                        <h1>Adicionando artigo</h1>
+                        <h1 style="text-align: center">Adicionando artigo</h1>
                         <div class="form-floating">
-                            <textarea name="titulo" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                             <hr>
-                            <label for="floatingTextarea">Titulo do artigo</label>
-                            <textarea name="subtitulo" id="Editor"></textarea>
+                            <div>
+                                <textarea name="titulo_art" class="form-control" placeholder="Titulo do artigo" id="floatingTitulo"></textarea>
+                            </div>
+                            <hr>
+                            <div>
+                                <textarea name="subtitulo_art" class="form-control" placeholder="Sub-titulo do artigo" id="floatingSub"></textarea>
+                            </div>
+                            <hr>
+                            <div>
+                                <label class="form-label">Selecione a imagem do artigo</label>
+                                <input class="form-control" type="file" name="caminho_foto" required>
+                            </div>
+                            <hr>
+                            <div>
+                                <textarea placeholder="Conteúdo do artigo" name="conteudo_art" id="Editor"></textarea>
+                            </div>
+                            <hr>
+                            <div>
+                                <textarea name="link_art" class="form-control" placeholder="link do artigo oficial" id="floatingSub"></textarea>
+                            </div>
                         </div>
 
                         <hr>
@@ -194,12 +209,14 @@
         </div>
 
         <!-- Modal excluir-->
-        <div class="modal fade" id="ModalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ModalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Exclusão de Portfólio</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         ATENÇÃO!!! <br>Você deseja excluir esse Portfólio?

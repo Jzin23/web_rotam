@@ -27,12 +27,8 @@
 @include('layout/menu')
 
 <body>
-    <div class="titulo">
-    <h1>A galeria</h1>
-    </div>
+    @include('layout/carrossel')
 
-    @include('layout/carrossel')
-    @include('layout/carrossel')
     @include('layout/rodape')
 </body>
 

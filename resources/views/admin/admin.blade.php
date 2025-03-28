@@ -13,19 +13,20 @@
             width: 20%;
         }
 
-        #quantitativo {
-            width: 80vw;
-            height: 50vh;
-            top: 0;
-            position: absolute;
-            display: flex;
-            justify-content: CENTER;
-            right: 0;
-        }
-
         H1 {
-            float: LEFT;
+            font-size: 7rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7) float: LEFT;
             padding: 20vh;
+            margin: 2rem 0;
+            font-family: 'Anton';
+
+            text-decoration: underline;
+            /* Adiciona o sublinhado */
+            text-decoration-color: #ffc107;
+            /* Define a cor do sublinhado */
+            text-decoration-thickness: 25px;
+            /* Define a espessura do sublinhado */
 
         }
 
@@ -34,20 +35,30 @@
             right: 1rem;
             position: absolute;
             border: 10px solid #000;
+            text-align: center;
+            margin-top: 20vh;
+        }
+
+        body {
+            background-image: URL('{{ asset('images/FUNDO_ESCURO.PNG') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-<div id="menu">@include('layout.menuAdmin')</div>
+    <div id="menu">@include('layout.menuAdmin')</div>
     <div id="conteudo">
 
-        <div id="quantitativo">
-            <H1 class="text-warning">Seja bem-vindo</H1>
-            <H1 class="text-warning">Mestre</H1>
+        <H1 class="text-warning">SEJA BEM-VINDO MESTRE</H1>
 
-        </div>
-       
     </div>
 
 

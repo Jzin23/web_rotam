@@ -15,7 +15,7 @@
               <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                   <div id="image_logo">
                       <a href="{{ Route('index') }}">
-                          <img src="{{ asset('image/logo.png') }}" alt="logo" id="logo">
+                          <img src="{{ asset('images/logo.png') }}" alt="logo" id="logo">
                       </a>
 
 

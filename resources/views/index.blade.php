@@ -13,14 +13,17 @@
         }
 
         #banner_inicio {
-            width: 100vw;
-            height: 85vh;
+            width: 100%;
+            height: auto;
             background-color: #ccc;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            -webkit-transform: scale(1.0)
+            -webkit-transform: scale(1.0);
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
         .filtro {
@@ -41,7 +44,7 @@
         }
 
         #fundo {
-            position: absolute;
+            position: relative;
             width: 100%;
             /* Altere para 100% para ocupar toda a largura */
             height: auto;
@@ -57,7 +60,7 @@
             background-color: #ccc;
             width: 100vw;
             height: 30vh;
-            position: absolute;
+            position: relative;
             bottom: 0;
             color: #000;
             display: flex;
@@ -122,7 +125,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            -webkit-transform: scale(1.0)
+            -webkit-transform: scale(1.0);
+            margin-top: auto;
+
         }
         
         #gremio_section_1 {
@@ -164,7 +169,7 @@
 
 
     <div id="banner_inicio">
-        <img src="{{ asset('image/rotam.jpg') }}" alt="logo" id="fundo">
+        <img src="{{ asset('images/equipe 2.jpg') }}" alt="logo" id="fundo">
         <div class="filtro">
             <h1>Projeto Social Jiu Jitsu</h1>
             <p>O projeto social Jiu-Jitsu ROTAM – Formando Cidadãos, é um projeto de prevenção primaria que tem a
@@ -228,7 +233,7 @@
 
 
     <div id="banner_gremio">
-        <img src="{{ asset('image/gremio.png') }}" alt="logo" id="fundo">
+        <img src="{{ asset('images/gremio 1.jpeg') }}" alt="logo" id="fundo">
         <div class="filtro">
             <h1>O GREMIO</h1>
             <p>O projeto social JIU-JITSU ROTAM – Formando Cidadãos, é um projeto de prevenção primaria que tem a

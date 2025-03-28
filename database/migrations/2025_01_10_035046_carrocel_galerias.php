@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarrocelGaleriasTable extends Migration
+class CarrocelGalerias extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,10 @@ class CreateCarrocelGaleriasTable extends Migration
     public function up()
     {
         Schema::create('carrocel_galerias', function (Blueprint $table) {
-            
-            $table->id('id_carrocel');
-            $table->string('descricao_carrocel')->nullable(); 
+            $table->id('ID_CARROCEL');
+            $table->string('TITULO_CARROCEL', 45);
+            $table->string('DESCRICAO_CARROCEL', 45);
             $table->timestamps();
-
         });
     }
 

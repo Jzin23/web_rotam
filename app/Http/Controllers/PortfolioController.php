@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
-    public function inicioPortfolio ()
+    public function inicioPortfolio()
     {
-        $portfolios = Portfolio::with('imagem')->get();
-        
+        $portfolios = Portfolio::all();
+
         return view('Portfolio', compact('portfolios'));
-        
     }
+
 }

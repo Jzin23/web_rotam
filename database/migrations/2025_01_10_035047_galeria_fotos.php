@@ -9,19 +9,20 @@ class GaleriaFotos extends Migration
     /**
      * Run the migrations.
      *
-     * @return void 
+     * @return void
      */
     public function up()
     {
         Schema::create('galeria_fotos', function (Blueprint $table) {
-            
-            $table->id('id_foto'); 
-            $table->unsignedBigInteger('id_carrocel')->nullable(); 
-            $table->string('foto',100)->default("Imagem não definida no banco de dados"); 
+            $table->id('ID_FOTO');
+            $table->unsignedBigInteger('CARROCEL_GALERIA_ID_CARROCEL');
+            $table->string('CAMINHO_FOTO', 255);
+            $table->string('FORMATO_FOTO', 45);
+            $table->string('TAMANHO_FOTO', 45);
+            $table->string('GALERIA_FOTOS', 45)->nullable();
             $table->timestamps();
 
-            $table->foreign('id_carrocel')->references('id_carrocel')->on('carrocel_galerias');  
-
+            $table->foreign('CARROCEL_GALERIA_ID_CARROCEL')->references('ID_CARROCEL')->on('carrocel_galerias')->onDelete('cascade');
         });
     }
 
@@ -32,6 +33,6 @@ class GaleriaFotos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeria_fotos');
+        //
     }
 }

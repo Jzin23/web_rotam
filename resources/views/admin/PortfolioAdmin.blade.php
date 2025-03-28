@@ -38,6 +38,7 @@
             overflow: auto;
             height: auto;
         }
+
         .imagem img {
             width: 100%;
             height: 40vh;
@@ -50,6 +51,13 @@
 <body>
 
     @include('layout.menuAdmin')
+
+    <!-- @if (session('Sucesso'))
+{{-- --}}
+        <div class="alert alert-success"> {{-- EXIBE UMA MENSAGEM DE SUCESSO --}}
+            {{ session('Sucesso') }}      {{-- --}}
+        </div>
+@endif -->
 
     <div class="conteudo">
         <!-- Main Content -->
@@ -66,37 +74,34 @@
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <!-- Verifica se há uma imagem associada ao portfólio -->
-                            @if ($portfolio->imagem)
-                               <div class="imagem">
-                               <img src="{{ asset('image/' . $portfolio->imagem->foto) }}" class="card-img-top"
-                               alt="Imagem do Atleta">
-                               </div>
+                            @if ($portfolio->CAMINHO_FOTO_EXIBICAO)
+                                <div class="imagem">
+                                    <img src="{{ asset('storage/portfolios/portfolios/fotos/' . $portfolio->CAMINHO_FOTO_EXIBICAO) }}"
+                                        alt="Imagem do Atleta">
+                                </div>
                             @else
                                 <img src="https://via.placeholder.com/300x200" class="card-img-top"
                                     alt="Imagem não encontrada">
                             @endif
 
                             <div class="card-body text-center">
-                                <h5 class="card-title">{{ $portfolio->nome_atleta }}</h5>
-                                <p class="card-text">{{ $portfolio->descricao_breve }}</p>
-
-                                <!-- Botões de ação -->
-                                <button class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#ModalConquista">Conquista +</button>
+                                <h5 class="card-title">{{ $portfolio->NOME_ATLETA }}</h5>
+                                <p class="card-text">{{ $portfolio->DESCRICAO_BREVE }}</p>
 
                                 <!-- Botão editar que chama o script -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-id="{{ $portfolio->id_portfolio }}"
-                                    data-nome="{{ $portfolio->nome_atleta }}"
+                                    data-nome="{{ $portfolio->NOME_ATLETA }}"
                                     data-descricao="{{ $portfolio->descricao_breve }}"
-                                    data-foto="{{ asset('image/' . $portfolio->imagem->foto) }}">
+                                    data-foto="{{ asset('storage/portfolios/fotos/' . $portfolio->CAMINHO_FOTO_EXIBICAO) }}">
                                     <i class="bi bi-pencil"></i> Editar
                                 </button>
 
                                 <!-- Botão excluir que chama o script -->
                                 <button class="btn
                                     btn-danger"
-                                    data-bs-toggle="modal" data-bs-target="#ModalExcluir">
+                                    data-bs-toggle="modal" data-bs-target="#ModalExcluir"
+                                    data-id="{{ $portfolio->id_portfolio }}">
                                     <i class="bi bi-trash"></i> Excluir
                                 </button>
 
@@ -110,7 +115,7 @@
                                             const nomeAtleta = this.getAttribute('data-nome');
                                             const descricao = this.getAttribute('data-descricao');
                                             const foto = this.getAttribute('data-foto');
-
+                                                console.log();
                                             // Preenchendo os campos do modal com os dados recuperados
                                             document.getElementById('nome_atleta').value = nomeAtleta;
                                             document.getElementById('floatingTextarea').value = descricao;
@@ -126,12 +131,25 @@
 
                                             // Alterando a ação do formulário para enviar para o URL correto
                                             const form = document.getElementById('editForm');
-                                            form.action = `/confPortfolio/update/{id_portfolio}`; // Atualiza o action com o ID correto
+                                            form.action = `/confPortfolio/update/{id}`; // Atualiza o action com o ID correto
                                         });
                                     });
                                 </script>
 
-            <!-- Modal Editar -->
+                                <script>
+                                    // Quando o botão de exclusão for clicado
+                                    document.querySelectorAll('[data-bs-target="#ModalExcluir"]').forEach(button => {
+                                        button.addEventListener('click', function() {
+                                            const id = this.getAttribute('data-id');
+                                            const form = document.getElementById('deleteForm');
+                                            form.action =
+                                            `/configAdmRotam/confPortfolio/excluir/${id}`; // Atualiza a ação do formulário com o ID do portfólio
+                                        });
+                                    });
+                                </script>
+
+
+                                <!-- Modal Editar -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -144,9 +162,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <!-- O formulário já está vazio e será preenchido com os dados via JavaScript -->
-                                                <form id="editForm"
-                                                    action="{{ route('conf.portfolios.update', $portfolio->id_portfolio) }}"
-                                                    method="POST" enctype="multipart/form-data">
+                                                <form id="editForm" {{--  action="{{ route('conf.portfolios.update', $portfolio->id_portfolio) }}"  --}} method="POST"
+                                                    enctype="multipart/form-data">
 
                                                     @csrf
                                                     @method('PUT')
@@ -206,9 +223,14 @@
                                 <input type="text" name="nome_atleta" class="form-control" required>
                                 <hr>
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Selecione a foto do atleta</label>
-                                    <input class="form-control" type="file" name="foto" id="formFile"
+                                    <label for="formCurriculo" class="form-label">Selecione o currículo do
+                                        atleta</label>
+                                    <input class="form-control" type="file" name="caminho_curriculo_atleta"
                                         required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label" id="formFile">Selecione a foto do atleta</label>
+                                    <input class="form-control" type="file" name="caminho_foto_exibicao" required>
                                 </div>
                                 <hr>
                                 <div class="form-floating">
@@ -216,6 +238,7 @@
                                         required></textarea>
                                     <label for="floatingTextarea">Apresente aqui uma breve descrição do atleta</label>
                                 </div>
+
                                 <button type="submit" class="btn btn-success mt-3">Salvar</button>
                             </form>
 
@@ -246,8 +269,13 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cancelar</button>
-                            <button class="btn btn-danger">Sim, desejo excluir</button>
+                            <form id="deleteForm" action="" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Sim, desejo excluir</button>
+                            </form>
                         </div>
+
                     </div>
                 </div>
             </div>

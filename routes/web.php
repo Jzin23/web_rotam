@@ -18,6 +18,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/portfolio', [PortfolioController::class, 'inicioPortfolio'])->name('site.portfolio');
+
 Route::get('/artigos', [ArtigosController::class, 'inicioArtigos'])->name('site.artigos');
 Route::get('/galeria', [GaleriaController::class, 'inicioGaleria'])->name('site.galeria');
 Route::get('/register', [AuthController::class, 'index'])->name('site.register');
@@ -25,10 +26,7 @@ Route::get('/login', function() {return view('login');})->name('site.login');
 Route::post('/login', [AuthController::class, 'login'])->name('site.login.post');
 
 
-
-
-
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['web'])->group(function () {
     route::prefix('/configAdmRotam')->group(function () {
 
         Route::get('/', [AdmHomeController::class, 'index'])->name('conf.home');
@@ -36,15 +34,20 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/confPortfolio', [AdmPortfolioController::class, 'inicioPortfolio'])->name('conf.portfolio');
         Route::post('/confPortfolio/salvar', [AdmPortfolioController::class, 'store'])->name('conf.portfolios.store');
         Route::put('/confPortfolio/update/{id_portfolio}', [AdmPortfolioController::class, 'update'])->name('conf.portfolios.update');
+        Route::delete('/confPortfolio/excluir/{id_portfolio}', [AdmPortfolioController::class, 'destroy'])->name('conf.portfolios.destroy');
 
 
-        Route::get('/confArtigos', [AdmArtigosController::class, 'index'])->name('conf.artigos.index');
+        Route::get('/confArtigos', [AdmArtigosController::class, 'inicioArtigo'])->name('conf.artigos.index');
         Route::post('/confArtigos/store', [AdmArtigosController::class, 'store'])->name('conf.artigos.store');
         Route::put('/confArtigos/update/{id}', [AdmArtigosController::class, 'update'])->name('conf.artigos.update');
 
 
        
         Route::get('/confGaleria', [AdmGaleriaController::class, 'index'])->name('conf.galeria');
+        Route::post('confGaleria/salvar', [AdmGaleriaController::class, 'store'])->name('conf.galeria.store');
+        Route::put('/confGaleria/update/{id}', [AdmGaleriaController::class, 'update'])->name('conf.galeria.update');
+        Route::delete('confGaleria/excluir/{id}', [AdmGaleriaController::class, 'destroy'])->name('conf.galeria.destroy');
+
        
         Route::get('/confPerfil', [AdmPerfilController::class, 'index'])->name('conf.perfil');
        

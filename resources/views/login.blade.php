@@ -55,7 +55,7 @@
 
         <div id="esquerda">
             <div id="icon-back">
-                <a href="{{ Route('index') }}"> <img src="{{ asset('image/icon-back.png') }}" alt="voltar"></a>
+                <a href="{{ Route('index') }}"> <img src="{{ asset('images/icon-back.png') }}" alt="voltar"></a>
 
             </div>
 

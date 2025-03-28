@@ -6,6 +6,7 @@ use id;
 use App\Models\Portfolio;
 use App\Models\GaleriaFoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdmPortfolioController extends Controller
 {
@@ -17,8 +18,7 @@ class AdmPortfolioController extends Controller
 
     public function inicioPortfolio()
     {
-
-        $portfolios = Portfolio::with('imagem')->get();
+        $portfolios = Portfolio::all();
 
         return view('admin.PortfolioAdmin', compact('portfolios'));
     }
@@ -31,39 +31,39 @@ class AdmPortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        // Validação dos dados
-        $request->validate([
-            'nome_atleta' => 'required|string|max:255',
-            'descricao_breve' => 'required|string',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',  // Validação da foto
-        ]);
 
-        // Criando um novo Portfólio
-        $portfolio = new Portfolio();
-        $portfolio->nome_atleta = $request->input('nome_atleta');
-        $portfolio->descricao_breve = $request->input('descricao_breve');
-
-        // Salvar o portfólio (sem a imagem)
-        $portfolio->save();
-
-        // Caso tenha uma imagem, faça o upload
-        if ($request->hasFile('foto')) {
-            // Armazenar a foto na pasta 'public/images' e recuperar o caminho
-            $filePath = $request->file('foto')->store('public/images');
-
-            // Criar uma nova entrada na tabela 'galeria_fotos' associada ao portfólio
-            $foto = new GaleriaFoto();
-            $foto->foto = basename($filePath);  // Salvar o nome do arquivo (sem o caminho)
-            $foto->save();  // Salvar a foto no banco de dados
-
-            // Associa a foto ao portfólio
-            $portfolio->id_foto = $foto->id_foto;
-            $portfolio->save();
+        // Validação dos dados enviados pelo formulário
+        try {
+            $request->validate([
+                'nome_atleta' => 'required|string|max:45',
+                'descricao_breve' => 'required|string|max:255',
+                'caminho_foto_exibicao' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                'caminho_curriculo_atleta' => 'required|file|max:2048',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            dd($e->errors());
         }
 
-        // Redirecionar de volta para a página de portfólios com uma mensagem de sucesso
-        return redirect()->route('conf.portfolios.index')->with('success', 'Portfólio criado com sucesso!');
+
+        $fotoPath = $request->file('caminho_foto_exibicao')->store('portfolios/fotos', 'public');  //salvar a foto
+        $fotoNome = basename($fotoPath); //extrai apenas o nome do arquivo
+
+
+        $curriculoPath = $request->file('caminho_curriculo_atleta')->store('portfolios/curriculos', 'public'); //salvar o currículo
+        $curriculoNome = basename($curriculoPath); //extrai apenas o nome do arquivo
+
+        $portfolio = new Portfolio();
+        $portfolio->nome_atleta = $request->nome_atleta;
+        $portfolio->descricao_breve = $request->descricao_breve;
+        $portfolio->caminho_curriculo_atleta = $curriculoNome ?? null;
+        $portfolio->caminho_foto_exibicao = $fotoNome ?? null;
+        $portfolio->save();
+
+        return redirect()->back()->with('Sucesso', 'Portfólio criado com exito!');
+
     }
+
+    
 
     /**
      * Exibe o recurso especificado.
@@ -141,6 +141,6 @@ class AdmPortfolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('Método destroy acionado', $id);
     }
 }

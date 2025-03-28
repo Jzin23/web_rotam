@@ -2,83 +2,85 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GaleriaFoto;
+use App\Models\CarrocelGaleria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use illuminate\support\Facades\Storage;
 
 class AdmGaleriaController extends Controller
 {
-    /**
-     * Exibir uma listagem do recurso.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('admin.GaleriaAdmin');
+        $fotos = GaleriaFoto::all();
+        $galerias = CarrocelGaleria::with('imagens')->get();
+
+
+        return view('admin.GaleriaAdmin', compact('fotos','galerias'));
     }
 
-    /**
-     * Mostrar o formulário para criação de um novo recurso.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Armazene um recurso recém-criado no armazenamento.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+      //  dd($request->all(), $request->file('imagens'));
+
+        $request->validate([
+            'titulo'=>'required|string|max:255',
+            'imagens' => 'required|array',
+            'imagens.*' => 'image'
+        ]);
+
+        $carrossel = CarrocelGaleria::create([
+            'TITULO_CARROCEL' => $request->titulo,
+            'DESCRICAO_CARROCEL' => $request->descricao ?? 'Sem descrição'
+        ]);
+
+        $carrosselId = $carrossel->ID_CARROCEL ?? $carrossel->getKey(); 
+
+        if (!$carrosselId) {
+            return redirect()->back()->with('error', 'Erro ao criar o carrossel.');
+        }
+
+        if ($request->hasFile('imagens')) {
+
+            foreach ($request->file('imagens') as $imagem) 
+            {
+                $path = $imagem->store('galeria', 'public');
+
+                GaleriaFoto::create([
+                    'CARROCEL_GALERIA_ID_CARROCEL' => $carrosselId,
+                    'CAMINHO_FOTO' => $path,
+                    'FORMATO_FOTO' => $imagem->extension(),
+                    'TAMANHO_FOTO' => $imagem->getSize()
+                ]);
+            }
+        }
+
+        return Redirect()->route('conf.galeria')->with('success', 'Imagem adicionada com sucesso');
     }
 
-    /**
-     *Exibir o recurso especificado.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Mostrar o formulário para edição do recurso especificado.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Atualize o recurso especificado no armazenamento.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(['foto' => 'nullable|image']);
+
+        $galeria = GaleriaFoto::findOrFail($id);
+
+        if ($request->hasFile('foto')) {
+            Storage::disk('public')->delete($galeria->foto); //exclui a imagem antiga
+
+            $path = $request->file('foto')->store('galeria', 'public');
+            $galeria->update(['foto'=>$path]);
+        }
+
+        return redirect()->route('conf.galeria')->with('success', 'Imagem atualizada com sucesso');
     }
 
-    /**
-     * Remova o recurso especificado do armazenamento.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $galeria = GaleriaFoto::findOrFail('$id');
+        Storage::disk('public')->delete($galeria->foto);
+        $galeria->delete();
+
+        return redirect()->route('conf.galeria')->with('success', 'Imagem excluída com sucesso');
     }
 }

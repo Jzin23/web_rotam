@@ -9,10 +9,17 @@ class GaleriaFoto extends Model
 {
     use HasFactory;
     protected $table = "galeria_fotos";
-    protected $fillable = ['foto'];
+    public $incrementing = true;
+    protected $primaryKey = 'ID_FOTO';
+    protected $fillable = [
+        'CARROCEL_GALERIA_ID_CARROCEL',
+        'CAMINHO_FOTO',
+        'FORMATO_FOTO',
+        'TAMANHO_FOTO',
+        'GALERIA_FOTOS'];
 
-    public function portfolio()
+    public function carrocel()
     {
-        return $this->hasOne(Portfolio::class, 'id_foto', 'id_foto');
+        return $this->belongsTo(CarrocelGaleria::class,'CARROCEL_GALERIA_ID_CARROCEL', 'ID_CARROCEL');
     }
 }
